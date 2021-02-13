@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/download_model.dart';
+import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/services/download_service.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
@@ -16,20 +17,35 @@ class DownloadsPage extends StatefulWidget {
 
 class _DownloadsPageState extends State<DownloadsPage>
     with SingleTickerProviderStateMixin {
-  final _list = ['Assignments', 'Study Material', 'Syllabus', 'Other Download'];
+  List<String> _list = [];
+  final _keysList = [
+    'Assignments',
+    'Study Material',
+    'Syllabus',
+    'Other Download'
+  ];
   TabController _tabController;
+  AppLocalizations lang;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: _list.length, vsync: this);
+    _tabController = TabController(length: _keysList.length, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
+    lang = AppLocalizations.of(context);
+    _list.clear();
+    _list.addAll([
+      lang.assignments,
+      lang.studyMaterial,
+      lang.syllabus,
+      lang.otherDownloads
+    ]);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Downloads'),
+        title: Text(lang.downloads),
         bottom: TabBar(
           isScrollable: true,
           indicatorColor: kMainColor,
@@ -43,10 +59,10 @@ class _DownloadsPageState extends State<DownloadsPage>
       ),
       body: TabBarView(
         children: [
-          PageBody(tag: _list[0]),
-          PageBody(tag: _list[1]),
-          PageBody(tag: _list[2]),
-          PageBody(tag: _list[3]),
+          PageBody(tag: _keysList[0]),
+          PageBody(tag: _keysList[1]),
+          PageBody(tag: _keysList[2]),
+          PageBody(tag: _keysList[3]),
         ],
         controller: _tabController,
       ),

@@ -5,6 +5,7 @@ import 'package:smart_school/src/data/models/notice-board_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/modals/home-work-bottom_sheet.dart';
+import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
 import 'package:toast/toast.dart';
@@ -49,23 +50,25 @@ class _NoticeBoardPageState extends State<NoticeBoardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Notice Board'),
-      ),
-      body: _isLoading
-          ? LoadingWidget()
-          : RefreshIndicator(
-              onRefresh: _fetchData,
-              child: _noticeBoard?.data?.isEmpty ?? true
-                  ? NoDataWidget()
-                  : ListView.builder(
-                      itemCount: _noticeBoard?.data?.length ?? 0,
-                      itemBuilder: (context, index) => _RowItem(
-                        data: _noticeBoard.data[index],
+    return LocalizedView(
+      builder: (ctx, lang) => Scaffold(
+        appBar: AppBar(
+          title: Text(lang.notice),
+        ),
+        body: _isLoading
+            ? LoadingWidget()
+            : RefreshIndicator(
+                onRefresh: _fetchData,
+                child: _noticeBoard?.data?.isEmpty ?? true
+                    ? NoDataWidget()
+                    : ListView.builder(
+                        itemCount: _noticeBoard?.data?.length ?? 0,
+                        itemBuilder: (context, index) => _RowItem(
+                          data: _noticeBoard.data[index],
+                        ),
                       ),
-                    ),
-            ),
+              ),
+      ),
     );
   }
 }
@@ -77,34 +80,36 @@ class _RowItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            padding: EdgeInsets.only(top: 15.0, bottom: 15.0, left: 10.0),
-            color: Colors.grey.shade300,
-            child: Text(data.title, style: k16BoldStyle),
-          ),
-          Row(
-            children: [
-              SizedBox(width: 10.0),
-              Text('Date\t\t\t${data.date}', style: k16BoldStyle),
-              Spacer(),
-              TextButton.icon(
-                onPressed: () {
-                  Scaffold.of(context).showBottomSheet(
-                        (context) => HomeWorkBottomSheet(
-                      detail: data.message,
-                    ),
-                  );
-                },
-                icon: Icon(CupertinoIcons.square_favorites),
-                label: Text('View'),
-              ),
-            ],
-          ),
-        ],
+    return LocalizedView(
+      builder: (ctx, lang) => Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 15.0, bottom: 15.0, left: 10.0),
+              color: Colors.grey.shade300,
+              child: Text(data.title, style: k16BoldStyle),
+            ),
+            Row(
+              children: [
+                SizedBox(width: 10.0),
+                Text('${lang.date}\t\t\t${data.date}', style: k16BoldStyle),
+                Spacer(),
+                TextButton.icon(
+                  onPressed: () {
+                    Scaffold.of(context).showBottomSheet(
+                      (context) => HomeWorkBottomSheet(
+                        detail: data.message,
+                      ),
+                    );
+                  },
+                  icon: Icon(CupertinoIcons.square_favorites),
+                  label: Text(lang.view),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

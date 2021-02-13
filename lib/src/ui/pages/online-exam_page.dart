@@ -86,12 +86,12 @@ class _RowItem extends StatelessWidget {
     // bool _view;
     bool _exam;
     if (exam.publishResult == '1') {
-      status = 'Status Published';
+      status = lang.statusPublished;
       // _view = true;
       _exam = false;
     } else {
       // _view = false;
-      status = 'Available';
+      status = lang.available;
       if (exam.isSubmitted == '1')
         _exam = false;
       else
@@ -138,7 +138,7 @@ class _RowItem extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text('Date From: ', style: k16BoldStyle),
+                          Text('${lang.dateFrom}: ', style: k16BoldStyle),
                           Text(exam?.examFrom ?? '', style: k14SimpleStyle),
                         ],
                       ),
@@ -146,14 +146,15 @@ class _RowItem extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 5.0),
                         child: Row(
                           children: [
-                            Text('Total Attempts: ', style: k16BoldStyle),
+                            Text('${lang.totalAttempts}: ',
+                                style: k16BoldStyle),
                             Text(exam?.attempt ?? '', style: k14SimpleStyle),
                           ],
                         ),
                       ),
                       Row(
                         children: [
-                          Text('Duration: ', style: k16BoldStyle),
+                          Text('${lang.duration}: ', style: k16BoldStyle),
                           Text(exam?.duration ?? '', style: k14SimpleStyle),
                         ],
                       ),
@@ -166,7 +167,7 @@ class _RowItem extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text('Date To: ', style: k16BoldStyle),
+                          Text('${lang.dateTo}: ', style: k16BoldStyle),
                           Text(exam?.examTo ?? '', style: k14SimpleStyle),
                         ],
                       ),
@@ -174,14 +175,14 @@ class _RowItem extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 5.0),
                         child: Row(
                           children: [
-                            Text('Attempted: ', style: k16BoldStyle),
+                            Text('${lang.attempted}: ', style: k16BoldStyle),
                             Text(exam?.attempts, style: k14SimpleStyle),
                           ],
                         ),
                       ),
                       Row(
                         children: [
-                          Text('Status: ', style: k16BoldStyle),
+                          Text('${lang.status}: ', style: k16BoldStyle),
                           Text(status, style: k14SimpleStyle),
                         ],
                       ),

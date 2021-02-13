@@ -6,6 +6,7 @@ import 'package:smart_school/src/data/models/student-syllabus_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/pages/syllabus-status-detail_page.dart';
+import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
 import 'package:smart_school/src/utility/nav.dart';
@@ -51,23 +52,25 @@ class _SyllabusStatusPageState extends State<SyllabusStatusPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Syllabus Status'),
-      ),
-      body: _isLoading
-          ? LoadingWidget()
-          : RefreshIndicator(
-              onRefresh: _fetchData,
-              child: _syllabus?.syllabusStatus?.isEmpty ?? true
-                  ? NoDataWidget()
-                  : ListView.builder(
-                      itemCount: _syllabus.syllabusStatus?.length ?? 0,
-                      itemBuilder: (context, index) => _RowItem(
-                        syllabusStatus: _syllabus.syllabusStatus[index],
+    return LocalizedView(
+      builder: (ctx, lang) => Scaffold(
+        appBar: AppBar(
+          title: Text(lang.syllabus),
+        ),
+        body: _isLoading
+            ? LoadingWidget()
+            : RefreshIndicator(
+                onRefresh: _fetchData,
+                child: _syllabus?.syllabusStatus?.isEmpty ?? true
+                    ? NoDataWidget()
+                    : ListView.builder(
+                        itemCount: _syllabus.syllabusStatus?.length ?? 0,
+                        itemBuilder: (context, index) => _RowItem(
+                          syllabusStatus: _syllabus.syllabusStatus[index],
+                        ),
                       ),
-                    ),
-            ),
+              ),
+      ),
     );
   }
 }
@@ -90,44 +93,46 @@ class _RowItem extends StatelessWidget {
       _complete = 0;
       _completePercentage = 0;
     }
-    return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Container(
-            padding: EdgeInsets.only(
-              top: 5.0,
-              bottom: 5.0,
-              left: 10.0,
-              right: 5.0,
+    return LocalizedView(
+      builder: (ctx, lang) => Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(
+              padding: EdgeInsets.only(
+                top: 5.0,
+                bottom: 5.0,
+                left: 10.0,
+                right: 5.0,
+              ),
+              color: Colors.grey.shade300,
+              child: Row(
+                children: [
+                  Icon(CupertinoIcons.book),
+                  Text(
+                    "${syllabusStatus.subjectName} ${syllabusStatus.subjectCode.isEmpty ? '' : (syllabusStatus.subjectCode)} ",
+                    style: k16BoldStyle,
+                  ),
+                  Spacer(),
+                  Text(
+                    "${_completePercentage.toString()}% ${lang.completed}",
+                    style: k16BoldStyle,
+                  ),
+                ],
+              ),
             ),
-            color: Colors.grey.shade300,
-            child: Row(
-              children: [
-                Icon(CupertinoIcons.book),
-                Text(
-                  "${syllabusStatus.subjectName} ${syllabusStatus.subjectCode.isEmpty ? '' : (syllabusStatus.subjectCode)} ",
-                  style: k16BoldStyle,
-                ),
-                Spacer(),
-                Text(
-                  "${_completePercentage.toString()}% Completed",
-                  style: k16BoldStyle,
-                ),
-              ],
+            TextButton.icon(
+              onPressed: () {
+                AppNavigation.to(
+                  context,
+                  SyllabusStatusDetailPage(syllabusStatus: syllabusStatus),
+                );
+              },
+              icon: Icon(CupertinoIcons.list_number),
+              label: Text(lang.lessonTopic),
             ),
-          ),
-          TextButton.icon(
-            onPressed: () {
-              AppNavigation.to(
-                context,
-                SyllabusStatusDetailPage(syllabusStatus: syllabusStatus),
-              );
-            },
-            icon: Icon(CupertinoIcons.list_number),
-            label: Text('Lesson Topic'),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
