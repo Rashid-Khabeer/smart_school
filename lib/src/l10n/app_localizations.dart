@@ -155,8 +155,8 @@ abstract class AppLocalizations {
   // No description provided in @lessonPlan
   String get lessonPlan;
 
-  // No description provided in @syllabus
-  String get syllabus;
+  // No description provided in @syllabusStatus
+  String get syllabusStatus;
 
   // No description provided in @homework
   String get homework;
@@ -394,6 +394,87 @@ abstract class AppLocalizations {
 
   // No description provided in @noImage
   String get noImage;
+
+  // No description provided in @syllabus
+  String get syllabus;
+
+  // No description provided in @presentation
+  String get presentation;
+
+  // No description provided in @lesson
+  String get lesson;
+
+  // No description provided in @topic
+  String get topic;
+
+  // No description provided in @subTopic
+  String get subTopic;
+
+  // No description provided in @generalObjectives
+  String get generalObjectives;
+
+  // No description provided in @teachingMethod
+  String get teachingMethod;
+
+  // No description provided in @previousKnowledge
+  String get previousKnowledge;
+
+  // No description provided in @comprehensiveKnowledge
+  String get comprehensiveKnowledge;
+
+  // No description provided in @lessonTopic
+  String get lessonTopic;
+
+  // No description provided in @syllabusDetail
+  String get syllabusDetail;
+
+  // No description provided in @completed
+  String get completed;
+
+  // No description provided in @incomplete
+  String get incomplete;
+
+  // No description provided in @complete
+  String get complete;
+
+  // No description provided in @noStatus
+  String get noStatus;
+
+  // No description provided in @noData
+  String get noData;
+
+  // No description provided in @statusPublished
+  String get statusPublished;
+
+  // No description provided in @available
+  String get available;
+
+  // No description provided in @dateFrom
+  String get dateFrom;
+
+  // No description provided in @dateTo
+  String get dateTo;
+
+  // No description provided in @totalAttempts
+  String get totalAttempts;
+
+  // No description provided in @duration
+  String get duration;
+
+  // No description provided in @attempted
+  String get attempted;
+
+  // No description provided in @status
+  String get status;
+
+  // No description provided in @assignments
+  String get assignments;
+
+  // No description provided in @studyMaterial
+  String get studyMaterial;
+
+  // No description provided in @otherDownloads
+  String get otherDownloads;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

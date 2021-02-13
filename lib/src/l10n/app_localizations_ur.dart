@@ -71,7 +71,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get lessonPlan => 'پلانی وانە';
 
   @override
-  String get syllabus => 'دۆخی خوێندن';
+  String get syllabusStatus => 'دۆخی خوێندن';
 
   @override
   String get homework => 'ئەرکی ماڵەوە';
@@ -313,4 +313,85 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get noImage => 'هیچ وێنەیەک دانەنراوە!';
+
+  @override
+  String get syllabus => 'بەرنامەی خوێندن';
+
+  @override
+  String get presentation => 'پێشکەش کردن';
+
+  @override
+  String get lesson => 'وانە';
+
+  @override
+  String get topic => 'بابەت';
+
+  @override
+  String get subTopic => 'جۆری بابەت';
+
+  @override
+  String get generalObjectives => 'ئامانجە گشتیەکان';
+
+  @override
+  String get teachingMethod => 'رێگای وانە وتنەوە';
+
+  @override
+  String get previousKnowledge => 'زانیاری پێشوو';
+
+  @override
+  String get comprehensiveKnowledge => 'زانیاری گشتگیر';
+
+  @override
+  String get lessonTopic => 'بابەتی وانە';
+
+  @override
+  String get syllabusDetail => 'پوختەی بەرنامەی خوێندن';
+
+  @override
+  String get completed => 'تەواوبوو';
+
+  @override
+  String get incomplete => 'تەواونەبوو';
+
+  @override
+  String get complete => 'تەواو';
+
+  @override
+  String get noStatus => 'بی دۆخ';
+
+  @override
+  String get noData => 'هیچ زانیاریەک نەدۆزرایەوە';
+
+  @override
+  String get statusPublished => 'دۆخی بڵاوبۆوە';
+
+  @override
+  String get available => 'بەردەستە';
+
+  @override
+  String get dateFrom => 'لە بەرواری';
+
+  @override
+  String get dateTo => 'بۆ بەرواری';
+
+  @override
+  String get totalAttempts => 'کۆی هەوڵدانەکان';
+
+  @override
+  String get duration => 'ماوە';
+
+  @override
+  String get attempted => 'هەوڵدراو';
+
+  @override
+  String get status => 'دۆخ';
+
+  @override
+  String get assignments => 'ئەرکەکان';
+
+  @override
+  String get studyMaterial => 'مادە خێندن';
+
+  @override
+  String get otherDownloads => 'داگرتنەکانی تر';
 }

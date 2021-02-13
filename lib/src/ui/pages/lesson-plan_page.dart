@@ -6,10 +6,10 @@ import 'package:smart_school/src/data/models/lesson-plan_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/pages/lesson-plan-detail_page.dart';
+import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
 import 'package:smart_school/src/utility/nav.dart';
-import 'package:smart_school/src/utility/utils.dart';
 import 'package:toast/toast.dart';
 
 class LessonPlanPage extends StatefulWidget {
@@ -57,68 +57,78 @@ class _LessonPlanPageState extends State<LessonPlanPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Lesson Plan'),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-          child: Column(
-            children: [
-              _DateSlider(
-                firstDate: _firstDate,
-                lastDate: _lastDate,
-                onChanged: (first, last) {
-                  _firstDate = first;
-                  _lastDate = last;
-                  _isLoading = true;
-                  setState(() {});
-                  _getData();
-                },
-              ),
-              _isLoading
-                  ? LoadingWidget()
-                  : Column(
-                      children: [
-                        _RowItem(
-                          firstDate: _firstDate,
-                          lessonDays:
-                              _lessonPlan?.lessonWeeks?.sundayList ?? [],
-                        ),
-                        _RowItem(
-                          firstDate: _firstDate.add(Duration(days: 1)),
-                          lessonDays:
-                              _lessonPlan?.lessonWeeks?.mondayList ?? [],
-                        ),
-                        _RowItem(
-                          firstDate: _firstDate.add(Duration(days: 2)),
-                          lessonDays:
-                              _lessonPlan?.lessonWeeks?.tuesdayList ?? [],
-                        ),
-                        _RowItem(
-                          firstDate: _firstDate.add(Duration(days: 3)),
-                          lessonDays:
-                              _lessonPlan?.lessonWeeks?.wednesdayList ?? [],
-                        ),
-                        _RowItem(
-                          firstDate: _firstDate.add(Duration(days: 4)),
-                          lessonDays:
-                              _lessonPlan?.lessonWeeks?.thursdayList ?? [],
-                        ),
-                        _RowItem(
-                          firstDate: _firstDate.add(Duration(days: 5)),
-                          lessonDays:
-                              _lessonPlan?.lessonWeeks?.fridayList ?? [],
-                        ),
-                        _RowItem(
-                          firstDate: _firstDate.add(Duration(days: 6)),
-                          lessonDays:
-                              _lessonPlan?.lessonWeeks?.saturdayList ?? [],
-                        ),
-                      ],
-                    ),
-            ],
+    return LocalizedView(
+      builder: (ctx, lang) => Scaffold(
+        appBar: AppBar(
+          title: Text(lang.lessonPlan),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            child: Column(
+              children: [
+                _DateSlider(
+                  firstDate: _firstDate,
+                  lastDate: _lastDate,
+                  onChanged: (first, last) {
+                    _firstDate = first;
+                    _lastDate = last;
+                    _isLoading = true;
+                    setState(() {});
+                    _getData();
+                  },
+                ),
+                _isLoading
+                    ? LoadingWidget()
+                    : Column(
+                        children: [
+                          _RowItem(
+                            firstDate: _firstDate,
+                            lessonDays:
+                                _lessonPlan?.lessonWeeks?.sundayList ?? [],
+                            day: lang.sunday,
+                          ),
+                          _RowItem(
+                            firstDate: _firstDate.add(Duration(days: 1)),
+                            lessonDays:
+                                _lessonPlan?.lessonWeeks?.mondayList ?? [],
+                            day: lang.monday,
+                          ),
+                          _RowItem(
+                            firstDate: _firstDate.add(Duration(days: 2)),
+                            lessonDays:
+                                _lessonPlan?.lessonWeeks?.tuesdayList ?? [],
+                            day: lang.tuesday,
+                          ),
+                          _RowItem(
+                            firstDate: _firstDate.add(Duration(days: 3)),
+                            lessonDays:
+                                _lessonPlan?.lessonWeeks?.wednesdayList ?? [],
+                            day: lang.wednesday,
+                          ),
+                          _RowItem(
+                            firstDate: _firstDate.add(Duration(days: 4)),
+                            lessonDays:
+                                _lessonPlan?.lessonWeeks?.thursdayList ?? [],
+                            day: lang.thursday,
+                          ),
+                          _RowItem(
+                            firstDate: _firstDate.add(Duration(days: 5)),
+                            lessonDays:
+                                _lessonPlan?.lessonWeeks?.fridayList ?? [],
+                            day: lang.friday,
+                          ),
+                          _RowItem(
+                            firstDate: _firstDate.add(Duration(days: 6)),
+                            lessonDays:
+                                _lessonPlan?.lessonWeeks?.saturdayList ?? [],
+                            day: lang.saturday,
+                          ),
+                        ],
+                      ),
+              ],
+            ),
           ),
         ),
       ),
@@ -129,83 +139,87 @@ class _LessonPlanPageState extends State<LessonPlanPage> {
 class _RowItem extends StatelessWidget {
   final firstDate;
   final List<LessonDays> lessonDays;
+  final String day;
 
-  _RowItem({this.firstDate, this.lessonDays});
+  _RowItem({this.firstDate, this.lessonDays, this.day});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Container(
-            color: Colors.grey.shade300,
-            padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  Utils.getWeekOfDay(firstDate.weekday),
-                  style: k14Style,
-                ),
-                Text(
-                  DateFormat('MM/dd/yyyy').format(firstDate).toString(),
-                  style: k14Style,
-                ),
-              ],
-            ),
-          ),
-          if (lessonDays.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+    return LocalizedView(
+      builder: (ctx, lang) => Card(
+        child: Column(
+          children: [
+            Container(
+              color: Colors.grey.shade300,
+              padding:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Subject', style: k16BoldStyle),
-                  Text('Time', style: k16BoldStyle),
-                  Text('Syllabus', style: k16BoldStyle),
+                  Text(
+                    day,
+                    style: k14Style,
+                  ),
+                  Text(
+                    DateFormat('MM/dd/yyyy').format(firstDate).toString(),
+                    style: k14Style,
+                  ),
                 ],
               ),
             ),
-          ListView.builder(
-            itemCount: lessonDays.length,
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              LessonDays _day = lessonDays[index];
-              final _time = _day.timeFrom.isNotEmpty
-                  ? '${_day.timeFrom}-${_day.timeTo}'
-                  : '';
-              return Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+            if (lessonDays.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "${_day.name} ${_day.code.isNotEmpty ? '(${_day.code})' : ''}",
-                      style: k14SimpleStyle,
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Text(
-                          _time,
-                          style: k14SimpleStyle,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      icon: Icon(CupertinoIcons.info_circle_fill),
-                      onPressed: () => AppNavigation.to(
-                        context,
-                        LessonPlanDetailPage(lessonDays: _day),
-                      ),
-                    ),
+                    Text(lang.subject, style: k16BoldStyle),
+                    Text(lang.time, style: k16BoldStyle),
+                    Text(lang.syllabus, style: k16BoldStyle),
                   ],
                 ),
-              );
-            },
-          ),
-        ],
+              ),
+            ListView.builder(
+              itemCount: lessonDays.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                LessonDays _day = lessonDays[index];
+                final _time = _day.timeFrom.isNotEmpty
+                    ? '${_day.timeFrom}-${_day.timeTo}'
+                    : '';
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 2.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "${_day.name} ${_day.code.isNotEmpty ? '(${_day.code})' : ''}",
+                        style: k14SimpleStyle,
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          child: Text(
+                            _time,
+                            style: k14SimpleStyle,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(CupertinoIcons.info_circle_fill),
+                        onPressed: () => AppNavigation.to(
+                          context,
+                          LessonPlanDetailPage(lessonDays: _day),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

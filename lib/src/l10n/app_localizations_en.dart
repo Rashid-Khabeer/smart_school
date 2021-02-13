@@ -71,7 +71,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lessonPlan => 'Lesson Plan';
 
   @override
-  String get syllabus => 'Syllabus Status';
+  String get syllabusStatus => 'Syllabus Status';
 
   @override
   String get homework => 'Homework';
@@ -313,4 +313,85 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noImage => 'No Image Selected!';
+
+  @override
+  String get syllabus => 'Syllabus';
+
+  @override
+  String get presentation => 'Presentation';
+
+  @override
+  String get lesson => 'Lesson';
+
+  @override
+  String get topic => 'Topic';
+
+  @override
+  String get subTopic => 'Sub Topic';
+
+  @override
+  String get generalObjectives => 'General Objectives';
+
+  @override
+  String get teachingMethod => 'Teaching Methods';
+
+  @override
+  String get previousKnowledge => 'Previous Knowledge';
+
+  @override
+  String get comprehensiveKnowledge => 'Comprehensive Knowledge';
+
+  @override
+  String get lessonTopic => 'LessonTopic';
+
+  @override
+  String get syllabusDetail => 'Syllabus Detail';
+
+  @override
+  String get completed => 'Completed';
+
+  @override
+  String get incomplete => 'Incomplete';
+
+  @override
+  String get complete => 'Complete';
+
+  @override
+  String get noStatus => 'No Status';
+
+  @override
+  String get noData => 'No Data';
+
+  @override
+  String get statusPublished => 'Status Published';
+
+  @override
+  String get available => 'Available';
+
+  @override
+  String get dateFrom => 'Date From';
+
+  @override
+  String get dateTo => 'Date To';
+
+  @override
+  String get totalAttempts => 'Total Attempts';
+
+  @override
+  String get duration => 'Duration';
+
+  @override
+  String get attempted => 'Attempted';
+
+  @override
+  String get status => 'Status';
+
+  @override
+  String get assignments => 'Assignments';
+
+  @override
+  String get studyMaterial => 'Study Material';
+
+  @override
+  String get otherDownloads => 'Other Downloads';
 }

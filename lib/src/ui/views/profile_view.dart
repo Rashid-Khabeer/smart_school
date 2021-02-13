@@ -16,24 +16,13 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  List<Widget> _list = [
-    Tab(
-      child: Text('Personal', style: kSimpleStyle),
-    ),
-    Tab(
-      child: Text('Parents', style: kSimpleStyle),
-    ),
-    Tab(
-      child: Text('Other', style: kSimpleStyle),
-    ),
-  ];
 
   StudentProfile _profile = StudentProfile();
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: _list.length, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     _getData();
   }
 
@@ -110,7 +99,17 @@ class _ProfileViewState extends State<ProfileView>
             TabBar(
               indicatorColor: kMainColor,
               controller: _tabController,
-              tabs: _list,
+              tabs: [
+                Tab(
+                  child: Text('Personal', style: kSimpleStyle),
+                ),
+                Tab(
+                  child: Text('Parents', style: kSimpleStyle),
+                ),
+                Tab(
+                  child: Text('Other', style: kSimpleStyle),
+                ),
+              ],
             ),
             Expanded(
               child: TabBarView(
@@ -464,7 +463,7 @@ class _OtherView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LocalizedView(
-      builder:(ctx, lang)=> SingleChildScrollView(
+      builder: (ctx, lang) => SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

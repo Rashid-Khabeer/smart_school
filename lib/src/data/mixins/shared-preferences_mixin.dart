@@ -17,9 +17,7 @@ mixin SharedPreferencesMixin {
 
   containsIds() => (containsSectionId() && containsSectionId());
 
-  setLocale(String locale) {
-    if (!containLocate()) _preferences.setString(_locale, locale);
-  }
+  setLocale(String locale) => _preferences.setString(_locale, locale);
 
   static getLocale() => containLocate() ? _preferences.getString(_locale) : '';
 

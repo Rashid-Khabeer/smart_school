@@ -1,3 +1,14 @@
 # Project exclude paths
+*.g.dart
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
 /.dart_tool/
 /build/

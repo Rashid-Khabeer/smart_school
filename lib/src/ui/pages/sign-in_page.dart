@@ -171,8 +171,8 @@ class _SignInPageState extends State<SignInPage> {
         _error = ServerError.withError(error);
         print(_error.errorMessage);
       });
-      Navigator.of(context).pop();
       if (_error == null) {
+        Navigator.of(context).pop();
         await AppData().saveUser(_response);
         ServerError _error;
         StudentProfile _profile = await RestService()

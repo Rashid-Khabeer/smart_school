@@ -71,7 +71,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lessonPlan => 'خطة الدرس';
 
   @override
-  String get syllabus => 'حالة المنهج الدراسي';
+  String get syllabusStatus => 'حالة المنهج الدراسي';
 
   @override
   String get homework => 'الواجبات المنزليه';
@@ -243,7 +243,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get id => 'Id';
 
   @override
-  String get date => 'التاريخ';
+  String get date => 'التاریخ';
 
   @override
   String get liveClass => 'صف لايف الزووم';
@@ -313,4 +313,85 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noImage => '!لا صورة مختارة';
+
+  @override
+  String get syllabus => 'المنهج';
+
+  @override
+  String get presentation => 'العرض التقديمي';
+
+  @override
+  String get lesson => 'الدرس';
+
+  @override
+  String get topic => 'الموضوع';
+
+  @override
+  String get subTopic => 'الموضوع الفرعي';
+
+  @override
+  String get generalObjectives => 'الأهداف العامة';
+
+  @override
+  String get teachingMethod => 'طرق التدريس';
+
+  @override
+  String get previousKnowledge => 'المعرفة السابقة';
+
+  @override
+  String get comprehensiveKnowledge => 'المعرفة الشاملة';
+
+  @override
+  String get lessonTopic => 'موضوع الدرس';
+
+  @override
+  String get syllabusDetail => 'تفاصيل المنهج الدراسي';
+
+  @override
+  String get completed => 'اكمال';
+
+  @override
+  String get incomplete => 'كامله';
+
+  @override
+  String get complete => 'كامله';
+
+  @override
+  String get noStatus => 'لا توجد حالة';
+
+  @override
+  String get noData => 'لا توجد بيانات';
+
+  @override
+  String get statusPublished => 'الحالة منشورة';
+
+  @override
+  String get available => 'متاح';
+
+  @override
+  String get dateFrom => 'تاريخ من';
+
+  @override
+  String get dateTo => 'التاريخ إلى';
+
+  @override
+  String get totalAttempts => 'مجموع المحاولات';
+
+  @override
+  String get duration => 'مده';
+
+  @override
+  String get attempted => 'محاوله';
+
+  @override
+  String get status => 'حاله';
+
+  @override
+  String get assignments => 'تعيينات';
+
+  @override
+  String get studyMaterial => 'مواد الدراسة';
+
+  @override
+  String get otherDownloads => 'التنزيلات الأخرى';
 }

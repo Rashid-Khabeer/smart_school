@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/online-exam_model.dart';
 import 'package:smart_school/src/data/models/student-profile_model.dart';
+import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
 import 'package:toast/toast.dart';
@@ -48,43 +50,47 @@ class _OnlineExamPageState extends State<OnlineExamPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Online Exam'),
-      ),
-      body: _isLoading
-          ? LoadingWidget()
-          : RefreshIndicator(
-              onRefresh: _fetchData,
-              child: _onlineExam?.exams?.isEmpty ?? true
-                  ? NoDataWidget()
-                  : ListView.builder(
-                      itemCount: _onlineExam?.exams?.length ?? 0,
-                      itemBuilder: (context, index) => _RowItem(
-                        exam: _onlineExam.exams[index],
+    return LocalizedView(
+      builder: (ctx, lang) => Scaffold(
+        appBar: AppBar(
+          title: Text(lang.exam),
+        ),
+        body: _isLoading
+            ? LoadingWidget()
+            : RefreshIndicator(
+                onRefresh: _fetchData,
+                child: _onlineExam?.exams?.isEmpty ?? true
+                    ? NoDataWidget()
+                    : ListView.builder(
+                        itemCount: _onlineExam?.exams?.length ?? 0,
+                        itemBuilder: (context, index) => _RowItem(
+                          exam: _onlineExam.exams[index],
+                          lang: lang,
+                        ),
                       ),
-                    ),
-            ),
+              ),
+      ),
     );
   }
 }
 
 class _RowItem extends StatelessWidget {
   final Exam exam;
+  final AppLocalizations lang;
 
-  _RowItem({this.exam});
+  _RowItem({this.exam, this.lang});
 
   @override
   Widget build(BuildContext context) {
     String status = '';
-    bool _view;
+    // bool _view;
     bool _exam;
     if (exam.publishResult == '1') {
       status = 'Status Published';
-      _view = true;
+      // _view = true;
       _exam = false;
     } else {
-      _view = false;
+      // _view = false;
       status = 'Available';
       if (exam.isSubmitted == '1')
         _exam = false;
@@ -106,7 +112,7 @@ class _RowItem extends StatelessWidget {
                     style: k16BoldStyle,
                   ),
                 ),
-                _view
+                _exam
                     ? TextButton.icon(
                         onPressed: () {
                           // Scaffold.of(context).showBottomSheet(
@@ -116,7 +122,7 @@ class _RowItem extends StatelessWidget {
                           // );
                         },
                         icon: Icon(CupertinoIcons.square_favorites),
-                        label: Text('View'),
+                        label: Text('Start Exam'),
                       )
                     : Container(),
               ],
