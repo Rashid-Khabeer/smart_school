@@ -1,0 +1,61 @@
+name: smart_school
+description: A new Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.0
+  # Localization for multiple languages
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.16.1
+  # Rest Libraries
+  dio: ^3.0.10
+  retrofit: ^1.3.4+1
+  json_annotation: ^3.1.1
+  json_serializable: ^3.5.1
+  # Local Storage
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
+  path_provider: ^1.6.27
+  shared_preferences: ^0.5.12+4
+  # Different Icons
+  flutter_icons: ^1.1.0
+  # Calendar
+  table_calendar: ^2.3.3
+  # Loading Animations
+  loading_indicator: ^1.2.0
+  # Firebase Notifications
+  firebase_messaging:
+  firebase_core:
+  # Toast for messages
+  toast: ^0.1.5
+  # Laucher
+  url_launcher: ^5.7.10
+  # Web View
+  webview_flutter: ^1.0.7
+  # Downloader
+  flutter_downloader: ^1.5.2
+  permission_handler: ^5.0.1+1
+  image_picker: ^0.6.7+22
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^1.11.0
+  retrofit_generator: ^1.4.1+2
+  hive_generator: ^0.8.2
+
+flutter:
+#  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/images/

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "980229335043",
+    "project_id": "smart-app-b1759",
+    "storage_bucket": "smart-app-b1759.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980229335043:android:26658aa8f45356194b0636",
+        "android_client_info": {
+          "package_name": "com.airsoft.smart_school"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980229335043-j9i4tgo5m35qm6it4d56mu4m45b1kr04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8S4FjZgrGzXh296zU07MG52_JwXAKKvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980229335043-j9i4tgo5m35qm6it4d56mu4m45b1kr04.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
