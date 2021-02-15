@@ -27,6 +27,8 @@ class _HomePageState extends State<HomePage> {
     print(AppData().readLastUser().userId);
     print(AppData().readLastUser().token);
     print(AppData().readLastUser().studentRecord.studentId);
+    print(AppData().getClassId());
+    print(AppData().getSectionId());
   }
 
   @override

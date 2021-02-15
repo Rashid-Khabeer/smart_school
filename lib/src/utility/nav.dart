@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/ui/pages/attendance_page.dart';
 import 'package:smart_school/src/ui/pages/downloads_page.dart';
+import 'package:smart_school/src/ui/pages/examination_page.dart';
 import 'package:smart_school/src/ui/pages/fees_page.dart';
 import 'package:smart_school/src/ui/pages/home-work_page.dart';
 import 'package:smart_school/src/ui/pages/home_page.dart';
@@ -11,6 +12,7 @@ import 'package:smart_school/src/ui/pages/notice-board_page.dart';
 import 'package:smart_school/src/ui/pages/online-exam_page.dart';
 import 'package:smart_school/src/ui/pages/sign-in_page.dart';
 import 'package:smart_school/src/ui/pages/syllabus-status_page.dart';
+import 'package:smart_school/src/ui/pages/teachers_page.dart';
 import 'package:smart_school/src/ui/pages/transport_page.dart';
 
 class AppPage {
@@ -33,6 +35,8 @@ class AppPage {
   static const liveClass = AppPage._('/liveClass');
   static const onlineExam = AppPage._('/onlineExam');
   static const downloads = AppPage._('/downloads');
+  static const examination = AppPage._('/examination');
+  static const teachers = AppPage._('/teachers');
 }
 
 abstract class AppNavigation {
@@ -64,5 +68,7 @@ abstract class AppNavigation {
     AppPage.liveClass._name: (context) => LiveClassPage(),
     AppPage.onlineExam._name: (context) => OnlineExamPage(),
     AppPage.downloads._name: (context) => DownloadsPage(),
+    AppPage.examination._name: (context) => ExaminationPage(),
+    AppPage.teachers._name: (context) => TeachersPage(),
   };
 }

@@ -106,12 +106,14 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: FontAwesome5.clock,
                     title: lang.attendance,
-                    // onTap: () =>
-                    //     AppNavigation.toPage(context, AppPage.attendance),
+                    onTap: () =>
+                        AppNavigation.toPage(context, AppPage.attendance),
                   ),
                   _CardWidget(
                     icon: CupertinoIcons.graph_circle,
                     title: lang.examination,
+                    onTap: () =>
+                        AppNavigation.toPage(context, AppPage.examination),
                   ),
                   _CardWidget(
                     icon: FontAwesome5.sticky_note,
@@ -125,6 +127,8 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: CupertinoIcons.star,
                     title: lang.reviews,
+                    onTap: () =>
+                        AppNavigation.toPage(context, AppPage.teachers),
                   ),
                   _CardWidget(
                     icon: FontAwesome5.address_book,

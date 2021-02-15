@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart' as rt;
+import 'package:smart_school/src/data/models/attendance_model.dart';
 import 'package:smart_school/src/data/models/download_model.dart';
+import 'package:smart_school/src/data/models/examination_model.dart';
 import 'package:smart_school/src/data/models/fee_model.dart';
 import 'package:smart_school/src/data/models/home-work_model.dart';
 import 'package:smart_school/src/data/models/hostel_model.dart';
@@ -11,6 +13,7 @@ import 'package:smart_school/src/data/models/online-exam_model.dart';
 import 'package:smart_school/src/data/models/sign-in_model.dart';
 import 'package:smart_school/src/data/models/student-profile_model.dart';
 import 'package:smart_school/src/data/models/student-syllabus_model.dart';
+import 'package:smart_school/src/data/models/teachers_model.dart';
 import 'package:smart_school/src/data/models/time-table_model.dart';
 import 'package:smart_school/src/data/models/transport_model.dart';
 import 'package:smart_school/src/services/rest/_client.dart';
@@ -113,6 +116,34 @@ abstract class RestService {
     @rt.Header('User-Id') String userId,
     @rt.Header('Authorization') String authKey,
     @rt.Body() DownloadRequest request,
+  });
+
+  @rt.POST('/webservice/getAttendenceRecords')
+  Future<Attendance> getAttendance({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() DownloadRequest request,
+  });
+
+  @rt.POST('/webservice/getExamList')
+  Future<Examination> getExamination({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() StudentRequest request,
+  });
+
+  @rt.POST('/webservice/getExamSchedule')
+  Future<ExamSchedule> getExamSchedule({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() ExamScheduleRequest request,
+  });
+
+  @rt.POST('/webservice/getTeachersList')
+  Future<Teachers> getTeachersList({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() TeachersRequest request,
   });
 
   @rt.POST('/webservice/getNotifications')
