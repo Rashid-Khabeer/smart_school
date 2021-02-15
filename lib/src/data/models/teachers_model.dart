@@ -107,3 +107,39 @@ class TeachersSubject {
 
   Map<String, dynamic> toJson() => _$TeachersSubjectToJson(this);
 }
+
+@JsonSerializable()
+class TeacherRatingRequest {
+  String rate;
+  String comment;
+  @JsonKey(name: 'staff_id')
+  String staffId;
+  @JsonKey(name: 'user_id')
+  String userId;
+  String role;
+
+  TeacherRatingRequest({
+    this.comment,
+    this.rate,
+    this.staffId,
+    this.role,
+    this.userId,
+  });
+
+  factory TeacherRatingRequest.fromJson(Map<String, dynamic> json) =>
+      _$TeacherRatingRequestFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TeacherRatingRequestToJson(this);
+}
+
+@JsonSerializable()
+class RatingResponse {
+  String msg;
+
+  RatingResponse({this.msg});
+
+  factory RatingResponse.fromJson(Map<String, dynamic> json) =>
+      _$RatingResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RatingResponseToJson(this);
+}

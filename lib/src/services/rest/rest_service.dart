@@ -146,6 +146,13 @@ abstract class RestService {
     @rt.Body() TeachersRequest request,
   });
 
+  @rt.POST('/webservice/addStaffRating')
+  Future<RatingResponse> teacherRate({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() TeacherRatingRequest request,
+  });
+
   @rt.POST('/webservice/getNotifications')
   Future<NoticeBoard> getNoticeBoard({
     @rt.Header('User-Id') String userId,

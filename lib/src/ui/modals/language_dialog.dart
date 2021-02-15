@@ -6,7 +6,6 @@ import 'package:smart_school/src/utility/constants.dart';
 
 openLanguageDialog({
   @required BuildContext context,
-  String text = 'Please Wait',
 }) {
   return showDialog(
     context: context,
