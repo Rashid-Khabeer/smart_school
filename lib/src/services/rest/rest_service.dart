@@ -161,10 +161,10 @@ abstract class RestService {
   });
 
   @rt.POST('/webservice/getTransportRoute')
-  Future<Transport> getTransport({
+  Future<List<Transport>> getTransport({
     @rt.Header('User-Id') String userId,
     @rt.Header('Authorization') String authKey,
-    @rt.Body() NoticeBoardRequest request,
+    @rt.Body() StudentRequest request,
   });
 
   @rt.POST('/webservice/getHostelList')

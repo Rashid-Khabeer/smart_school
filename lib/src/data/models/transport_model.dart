@@ -18,22 +18,10 @@ class Transport {
 
 @JsonSerializable()
 class TransportVehicles {
+  @JsonKey(name: 'vehicle_no')
   String vehicleNo;
   String assigned;
   String id;
-
-  TransportVehicles({this.id, this.vehicleNo, this.assigned});
-
-  factory TransportVehicles.fromJson(Map<String, dynamic> json) =>
-      _$TransportVehiclesFromJson(json);
-
-  Map<String, dynamic> toJson() => _$TransportVehiclesToJson(this);
-}
-
-@JsonSerializable()
-class Vehicle {
-  @JsonKey(name: 'vehicle_no')
-  String vehicleNo;
   @JsonKey(name: 'vehicle_model')
   String vehicleModel;
   @JsonKey(name: 'manufacture_year')
@@ -45,17 +33,19 @@ class Vehicle {
   @JsonKey(name: 'driver_contact')
   String driverContact;
 
-  Vehicle({
+  TransportVehicles({
+    this.id,
     this.vehicleNo,
-    this.driverContact,
-    this.driverName,
-    this.driverLicense,
+    this.assigned,
     this.manufacturerYear,
+    this.driverLicense,
+    this.driverName,
+    this.driverContact,
     this.vehicleModel,
   });
 
-  factory Vehicle.fromJson(Map<String, dynamic> json) =>
-      _$VehicleFromJson(json);
+  factory TransportVehicles.fromJson(Map<String, dynamic> json) =>
+      _$TransportVehiclesFromJson(json);
 
-  Map<String, dynamic> toJson() => _$VehicleToJson(this);
+  Map<String, dynamic> toJson() => _$TransportVehiclesToJson(this);
 }

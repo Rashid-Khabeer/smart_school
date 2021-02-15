@@ -137,8 +137,8 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: CupertinoIcons.bus,
                     title: lang.transport,
-                    // onTap: () =>
-                    //     AppNavigation.toPage(context, AppPage.transport),
+                    onTap: () =>
+                        AppNavigation.toPage(context, AppPage.transport),
                   ),
                   _CardWidget(
                     icon: CupertinoIcons.bed_double,
