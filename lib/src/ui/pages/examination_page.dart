@@ -6,9 +6,11 @@ import 'package:smart_school/src/data/models/examination_model.dart';
 import 'package:smart_school/src/data/models/student-profile_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/pages/exam-schedule_page.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
+import 'package:smart_school/src/utility/nav.dart';
 import 'package:toast/toast.dart';
 
 class ExaminationPage extends StatefulWidget {
@@ -98,17 +100,22 @@ class _RowItem extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              // if (data.resultPublish != '0')
-              TextButton.icon(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.request_page,
-                  color: kMainColor,
+              if (data.resultPublish != '0')
+                TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.request_page,
+                    color: kMainColor,
+                  ),
+                  label: Text('Exam Result'),
                 ),
-                label: Text('Exam Result'),
-              ),
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () => AppNavigation.to(
+                  context,
+                  ExamSchedulePage(
+                    examGroupId: data.examId,
+                  ),
+                ),
                 icon: Icon(
                   CupertinoIcons.clock,
                   color: kMainColor,
@@ -122,5 +129,3 @@ class _RowItem extends StatelessWidget {
     );
   }
 }
-
-

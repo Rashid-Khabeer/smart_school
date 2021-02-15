@@ -167,7 +167,7 @@ class ExamScheduleRequest {
 @JsonSerializable(explicitToJson: true)
 class ExamSchedule {
   @JsonKey(name: 'exam_subjects')
-  List<ExamResultDetail> detail;
+  List<ExamScheduleDetail> detail;
 
   ExamSchedule({this.detail});
 
