@@ -12,35 +12,37 @@ class TeachersBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300,
-      child: Column(
-        children: [
-          Container(
-            color: Colors.grey,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  icon: Icon(CupertinoIcons.clear),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
-            ),
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Container(
-              child: DataTable(
-                columns: [
-                  DataColumn(label: Text('Time', style: k16BoldStyle)),
-                  DataColumn(label: Text('Day', style: k16BoldStyle)),
-                  DataColumn(label: Text('Subject', style: k16BoldStyle)),
-                  DataColumn(label: Text('Room', style: k16BoldStyle)),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              color: Colors.grey,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    icon: Icon(CupertinoIcons.clear),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
                 ],
-                rows: subjects?.isNotEmpty ?? false ? _getDataRow() : [],
               ),
             ),
-          ),
-        ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Container(
+                child: DataTable(
+                  columns: [
+                    DataColumn(label: Text('Time', style: k16BoldStyle)),
+                    DataColumn(label: Text('Day', style: k16BoldStyle)),
+                    DataColumn(label: Text('Subject', style: k16BoldStyle)),
+                    DataColumn(label: Text('Room', style: k16BoldStyle)),
+                  ],
+                  rows: subjects?.isNotEmpty ?? false ? _getDataRow() : [],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

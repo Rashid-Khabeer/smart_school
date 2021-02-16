@@ -145,13 +145,15 @@ class _RowItem extends StatelessWidget {
           children: [
             Icon(icon),
             SizedBox(width: 5),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: k14Style),
-                SizedBox(height: 5),
-                Text(text, style: k14Style),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: k14Style),
+                  SizedBox(height: 5),
+                  Text(text, style: k14Style),
+                ],
+              ),
             ),
           ],
         ),
