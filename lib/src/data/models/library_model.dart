@@ -3,6 +3,36 @@ import 'package:json_annotation/json_annotation.dart';
 part 'library_model.g.dart';
 
 @JsonSerializable()
+class LibraryRequest {
+  String studentId;
+
+  LibraryRequest({this.studentId});
+
+  factory LibraryRequest.fromJson(Map<String, dynamic> json) =>
+      _$LibraryRequestFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LibraryRequestToJson(this);
+}
+
+@JsonSerializable()
+class LibraryIssuedResult {
+  int success;
+  int status;
+  String errorMsg;
+
+  LibraryIssuedResult({
+    this.errorMsg,
+    this.status,
+    this.success,
+  });
+
+  factory LibraryIssuedResult.fromJson(Map<String, dynamic> json) =>
+      _$LibraryIssuedResultFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LibraryIssuedResultToJson(this);
+}
+
+@JsonSerializable()
 class LibraryIssued {
   @JsonKey(name: 'book_title')
   String bookTitle;

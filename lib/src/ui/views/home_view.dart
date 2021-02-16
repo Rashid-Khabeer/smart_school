@@ -133,6 +133,8 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: FontAwesome5.address_book,
                     title: lang.library,
+                    onTap: () =>
+                        AppNavigation.toPage(context, AppPage.library),
                   ),
                   _CardWidget(
                     icon: CupertinoIcons.bus,

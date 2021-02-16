@@ -22,6 +22,10 @@ class LoadingWidget extends StatelessWidget {
 }
 
 class NoDataWidget extends StatelessWidget {
+  final String message;
+
+  NoDataWidget({this.message = ''});
+
   @override
   Widget build(BuildContext context) {
     return LocalizedView(
@@ -35,7 +39,10 @@ class NoDataWidget extends StatelessWidget {
               height: 200,
             ),
             SizedBox(height: 10.0),
-            Text(lang.noData, style: k16BoldStyle.copyWith(fontSize: 20)),
+            Text(
+              message.isEmpty ? lang.noData : message,
+              style: k16BoldStyle.copyWith(fontSize: 22),
+            ),
           ],
         ),
       ),
