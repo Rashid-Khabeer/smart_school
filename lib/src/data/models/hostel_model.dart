@@ -27,9 +27,28 @@ class HostelData {
   Map<String, dynamic> toJson() => _$HostelDataToJson(this);
 }
 
+@JsonSerializable()
+class HostelDetailRequest {
+  String hostelId;
+  @JsonKey(name: 'student_id')
+  String studentId;
+
+  HostelDetailRequest({this.hostelId, this.studentId});
+
+  factory HostelDetailRequest.fromJson(Map<String, dynamic> json) =>
+      _$HostelDetailRequestFromJson(json);
+
+  Map<String, dynamic> toJson() => _$HostelDetailRequestToJson(this);
+}
+
+_successFromJson(val) => val.toString();
+
+
 @JsonSerializable(explicitToJson: true)
 class HostelDetail {
-  List<HostelDetail> data;
+  @JsonKey(fromJson: _successFromJson)
+  String success;
+  List<HostelDetailData> data;
 
   HostelDetail({this.data});
 

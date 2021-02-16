@@ -6,6 +6,7 @@ import 'package:smart_school/src/ui/pages/examination_page.dart';
 import 'package:smart_school/src/ui/pages/fees_page.dart';
 import 'package:smart_school/src/ui/pages/home-work_page.dart';
 import 'package:smart_school/src/ui/pages/home_page.dart';
+import 'package:smart_school/src/ui/pages/hostel_page.dart';
 import 'package:smart_school/src/ui/pages/lesson-plan_page.dart';
 import 'package:smart_school/src/ui/pages/live-classes_page.dart';
 import 'package:smart_school/src/ui/pages/notice-board_page.dart';
@@ -37,6 +38,7 @@ class AppPage {
   static const downloads = AppPage._('/downloads');
   static const examination = AppPage._('/examination');
   static const teachers = AppPage._('/teachers');
+  static const hostels = AppPage._('/hostels');
 }
 
 abstract class AppNavigation {
@@ -70,5 +72,6 @@ abstract class AppNavigation {
     AppPage.downloads._name: (context) => DownloadsPage(),
     AppPage.examination._name: (context) => ExaminationPage(),
     AppPage.teachers._name: (context) => TeachersPage(),
+    AppPage.hostels._name: (context) => HostelPage(),
   };
 }

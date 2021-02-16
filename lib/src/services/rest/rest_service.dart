@@ -167,10 +167,16 @@ abstract class RestService {
     @rt.Body() StudentRequest request,
   });
 
-  @rt.POST('/webservice/getHostelList')
+  @rt.GET('/webservice/getHostelList')
   Future<Hostel> getHostel({
     @rt.Header('User-Id') String userId,
     @rt.Header('Authorization') String authKey,
-    @rt.Body() NoticeBoardRequest request,
+  });
+
+  @rt.POST('/webservice/getHostelDetails')
+  Future<HostelDetail> getHostelDetail({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() HostelDetailRequest request,
   });
 }
