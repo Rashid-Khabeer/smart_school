@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:smart_school/src/data/data.dart';
+import 'package:smart_school/src/data/models/attendance_model.dart';
+import 'package:smart_school/src/services/rest/rest_service.dart';
+import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
+import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:toast/toast.dart';
 
 class AttendancePage extends StatefulWidget {
   @override
@@ -10,11 +17,44 @@ class AttendancePage extends StatefulWidget {
 
 class _AttendancePageState extends State<AttendancePage> {
   CalendarController _calendarController;
+  bool _isLoading = true;
+
+  _getData(DateTime date) async {
+    ServerError _error;
+    final _attendance = await RestService()
+        .getAttendance(
+      authKey: AppData().readLastUser().token,
+      userId: AppData().readLastUser().userId,
+      request: AttendanceRequest(
+        studentId: AppData().readLastUser().studentRecord.studentId,
+        month: date.month.toString(),
+        year: date.year.toString(),
+      ),
+    )
+        .catchError((error) {
+      print(error);
+      _error = ServerError.withError(error);
+      print(_error.errorMessage);
+      Toast.show(_error.errorMessage, context);
+      _isLoading = true;
+    });
+    if (_error == null) {
+      //   DateTime(2021, 2, 1): ['New Year\'s Day'],
+      _attendance.data.forEach((element) {
+        _holidays.addAll({
+          DateTime.parse(element.date): [element.type.toString()]
+        });
+      });
+    }
+    setState(() {});
+    _isLoading = false;
+  }
 
   @override
   void initState() {
     super.initState();
     _calendarController = CalendarController();
+    _getData(DateTime.now());
   }
 
   @override
@@ -23,15 +63,25 @@ class _AttendancePageState extends State<AttendancePage> {
     super.dispose();
   }
 
+  Map<DateTime, List> _holidays = {};
+
   Widget _buildTableCalendar() {
     return TableCalendar(
       calendarController: _calendarController,
       startingDayOfWeek: StartingDayOfWeek.sunday,
+      onVisibleDaysChanged: (first, second, format) {
+        print('Changed');
+        _isLoading = true;
+        _holidays.clear();
+        setState(() {});
+        _getData(first);
+      },
       calendarStyle: CalendarStyle(
         selectedColor: kMainColor,
         todayColor: kMainColor,
         outsideDaysVisible: false,
       ),
+      holidays: _holidays,
       headerStyle: HeaderStyle(
         formatButtonTextStyle: TextStyle().copyWith(
           color: Colors.white,
@@ -43,10 +93,41 @@ class _AttendancePageState extends State<AttendancePage> {
           borderRadius: BorderRadius.circular(16.0),
         ),
       ),
-      onCalendarCreated: (first, second, format) {
-        _calendarController.setSelectedDay(DateTime(2021, 2, 13));
-      },
+      builders: CalendarBuilders(
+        markersBuilder: (ctx, date, events, holidays) {
+          return holidays
+              .map(
+                (e) => Positioned(
+                  right: 18,
+                  top: 32,
+                  child: Icon(
+                    FontAwesome.circle,
+                    size: 15.0,
+                    color: _getColor(e.toString()),
+                  ),
+                ),
+              )
+              .toList();
+        },
+      ),
     );
+  }
+
+  _getColor(String type) {
+    switch (type) {
+      case 'Present':
+        return Colors.green;
+      case 'Late':
+        return Colors.yellow;
+      case 'Holiday':
+        return Colors.grey;
+      case 'Absent':
+        return Colors.red;
+      case 'Half Day':
+        return Colors.orange;
+      default:
+        return kMainColor;
+    }
   }
 
   @override
@@ -59,6 +140,7 @@ class _AttendancePageState extends State<AttendancePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              if (_isLoading) LoadingWidget(),
               _buildTableCalendar(),
               Padding(
                 padding: const EdgeInsets.symmetric(

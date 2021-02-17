@@ -11,7 +11,7 @@ class AttendanceRequest {
   String date;
 
   AttendanceRequest({
-    this.date,
+    this.date = '',
     this.studentId,
     this.month,
     this.year,
@@ -40,8 +40,9 @@ class Attendance {
 @JsonSerializable()
 class AttendanceDetail {
   String type;
+  String date;
 
-  AttendanceDetail({this.type});
+  AttendanceDetail({this.type, this.date});
 
   factory AttendanceDetail.fromJson(Map<String, dynamic> json) =>
       _$AttendanceDetailFromJson(json);
