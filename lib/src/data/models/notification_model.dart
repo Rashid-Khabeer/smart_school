@@ -19,7 +19,7 @@ class NotificationRequest {
 
 @JsonSerializable(explicitToJson: true)
 class Notifications {
-  String success;
+  int success;
   @JsonKey(defaultValue: [])
   List<NotificationData> data;
 

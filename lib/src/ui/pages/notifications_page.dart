@@ -3,8 +3,10 @@ import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/notification_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/modals/home-work-bottom_sheet.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
+import 'package:smart_school/src/utility/constants.dart';
 import 'package:toast/toast.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -75,6 +77,30 @@ class _RowItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return InkWell(
+      onTap: () {
+        Scaffold.of(context).showBottomSheet(
+          (context) => HomeWorkBottomSheet(
+            detail: data.message,
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 7.0),
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 10.0, 20.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(data.title, style: k16BoldStyle),
+                ),
+                Text(data.date, style: k14SimpleStyle),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
