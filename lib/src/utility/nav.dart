@@ -4,6 +4,7 @@ import 'package:smart_school/src/ui/pages/attendance_page.dart';
 import 'package:smart_school/src/ui/pages/downloads_page.dart';
 import 'package:smart_school/src/ui/pages/examination_page.dart';
 import 'package:smart_school/src/ui/pages/fees_page.dart';
+import 'package:smart_school/src/ui/pages/forgot-password_page.dart';
 import 'package:smart_school/src/ui/pages/home-work_page.dart';
 import 'package:smart_school/src/ui/pages/home_page.dart';
 import 'package:smart_school/src/ui/pages/hostel_page.dart';
@@ -28,6 +29,7 @@ class AppPage {
 
   // static const mainPage = AppPage._('/sdf');
   static const signIn = AppPage._('/signIn');
+  static const forgotPassword = AppPage._('/forgotPassword');
   static const home = AppPage._('/home');
   static const notice = AppPage._('/notice');
   static const transport = AppPage._('/transport');
@@ -65,6 +67,7 @@ abstract class AppNavigation {
     AppPage.mainPage._name: (context) =>
         AppData().isUserSaved() ? HomePage() : SignInPage(),
     AppPage.signIn._name: (context) => SignInPage(),
+    AppPage.forgotPassword._name: (context) => ForgotPasswordPage(),
     AppPage.home._name: (context) => HomePage(),
     AppPage.notice._name: (context) => NoticeBoardPage(),
     AppPage.transport._name: (context) => TransportPage(),

@@ -4,6 +4,7 @@ import 'package:smart_school/src/data/models/attendance_model.dart';
 import 'package:smart_school/src/data/models/download_model.dart';
 import 'package:smart_school/src/data/models/examination_model.dart';
 import 'package:smart_school/src/data/models/fee_model.dart';
+import 'package:smart_school/src/data/models/forgot-password_model.dart';
 import 'package:smart_school/src/data/models/home-work_model.dart';
 import 'package:smart_school/src/data/models/hostel_model.dart';
 import 'package:smart_school/src/data/models/lesson-plan_model.dart';
@@ -28,6 +29,11 @@ abstract class RestService {
 
   @rt.POST('/auth/login')
   Future<SignInResponse> signIn(@rt.Body() SignInRequest data);
+
+  @rt.POST('/webservice/forgot_password')
+  Future<ForgotPasswordResponse> forgotPassword({
+    @rt.Body() ForgotPasswordRequest request,
+  });
 
   @rt.POST('/webservice/logout')
   Future<SignOutResponse> signOut({

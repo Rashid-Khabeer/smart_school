@@ -93,7 +93,8 @@ class _SignInPageState extends State<SignInPage> {
                       children: [
                         _dividerWidget(),
                         InkWell(
-                          onTap: () => print('Hello'),
+                          onTap: () => AppNavigation.toPage(
+                              context, AppPage.forgotPassword),
                           child: Container(
                             padding: EdgeInsets.symmetric(
                               vertical: 2.0,
