@@ -5,6 +5,7 @@ import 'package:smart_school/src/data/models/tasks_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/modals/add-task_dialog.dart';
+import 'package:smart_school/src/ui/modals/confirmation_dialog.dart';
 import 'package:smart_school/src/ui/modals/loading_dialog.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
@@ -129,7 +130,13 @@ class _RowItem extends StatelessWidget {
           caption: 'Delete',
           color: Colors.red,
           icon: Icons.delete,
-          onTap: _delete,
+          onTap: () async {
+            if ((await openConfirmationDialog(
+              title: 'Confirm',
+              content: 'Are you sure you want to delete this task',
+              context: context,
+            ))) _delete();
+          },
         ),
       ],
     );

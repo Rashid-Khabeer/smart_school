@@ -6,6 +6,7 @@ import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/sign-in_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/modals/confirmation_dialog.dart';
 import 'package:smart_school/src/ui/modals/language_dialog.dart';
 import 'package:smart_school/src/ui/modals/loading_dialog.dart';
 import 'package:smart_school/src/ui/pages/base_page.dart';
@@ -133,8 +134,7 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: FontAwesome5.address_book,
                     title: lang.library,
-                    onTap: () =>
-                        AppNavigation.toPage(context, AppPage.library),
+                    onTap: () => AppNavigation.toPage(context, AppPage.library),
                   ),
                   _CardWidget(
                     icon: CupertinoIcons.bus,
@@ -145,8 +145,7 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: CupertinoIcons.bed_double,
                     title: lang.hostel,
-                    onTap: () =>
-                        AppNavigation.toPage(context, AppPage.hostels),
+                    onTap: () => AppNavigation.toPage(context, AppPage.hostels),
                   ),
                 ],
               ),
@@ -160,8 +159,7 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: CupertinoIcons.list_number,
                     title: lang.task,
-                    onTap: () =>
-                        AppNavigation.toPage(context, AppPage.tasks),
+                    onTap: () => AppNavigation.toPage(context, AppPage.tasks),
                   ),
                   _CardWidget(
                     icon: CupertinoIcons.globe,
@@ -172,7 +170,13 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: CupertinoIcons.square_arrow_left,
                     title: lang.logOut,
-                    onTap: _signOut,
+                    onTap: () async {
+                      if ((await openConfirmationDialog(
+                        title: 'Confirm',
+                        content: 'Are you sure you want to logout',
+                        context: context,
+                      ))) _signOut();
+                    },
                   ),
                   // Spacer(),
                 ],
