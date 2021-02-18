@@ -6,6 +6,7 @@ import 'package:smart_school/src/ui/views/home_view.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/views/profile_view.dart';
 import 'package:smart_school/src/ui/views/time-table_view.dart';
+import 'package:smart_school/src/utility/assets.dart';
 import 'package:smart_school/src/utility/nav.dart';
 
 class HomePage extends StatefulWidget {
@@ -40,7 +41,10 @@ class _HomePageState extends State<HomePage> {
           title: Text(lang.appName),
           centerTitle: true,
           leading: Center(
-            child: Text('Logo'),
+            child: Image.asset(
+              AppAssets.schoolLogo,
+              fit: BoxFit.fill,
+            ),
           ),
           bottom: PreferredSize(
             child: Padding(

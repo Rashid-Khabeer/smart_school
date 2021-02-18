@@ -63,6 +63,8 @@ class _SignInPageState extends State<SignInPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Spacer(),
+                    Image.asset(AppAssets.logo, width: 170),
+                    SizedBox(height: 20.0),
                     AppTextField(
                       iconData: CupertinoIcons.person,
                       onSaved: (value) => _request.userName = value,
