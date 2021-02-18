@@ -6,6 +6,7 @@ import 'package:smart_school/src/ui/views/home_view.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/views/profile_view.dart';
 import 'package:smart_school/src/ui/views/time-table_view.dart';
+import 'package:smart_school/src/utility/nav.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -68,7 +69,8 @@ class _HomePageState extends State<HomePage> {
           actions: [
             TextButton(
               child: Icon(CupertinoIcons.bell_fill, color: Colors.white),
-              onPressed: () {},
+              onPressed: () =>
+                  AppNavigation.toPage(context, AppPage.notifications),
             ),
           ],
         ),

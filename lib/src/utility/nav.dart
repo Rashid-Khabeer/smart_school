@@ -11,6 +11,7 @@ import 'package:smart_school/src/ui/pages/lesson-plan_page.dart';
 import 'package:smart_school/src/ui/pages/library_page.dart';
 import 'package:smart_school/src/ui/pages/live-classes_page.dart';
 import 'package:smart_school/src/ui/pages/notice-board_page.dart';
+import 'package:smart_school/src/ui/pages/notifications_page.dart';
 import 'package:smart_school/src/ui/pages/online-exam_page.dart';
 import 'package:smart_school/src/ui/pages/sign-in_page.dart';
 import 'package:smart_school/src/ui/pages/syllabus-status_page.dart';
@@ -43,6 +44,7 @@ class AppPage {
   static const hostels = AppPage._('/hostels');
   static const library = AppPage._('/library');
   static const tasks = AppPage._('/tasks');
+  static const notifications = AppPage._('/notifications');
 }
 
 abstract class AppNavigation {
@@ -79,5 +81,6 @@ abstract class AppNavigation {
     AppPage.hostels._name: (context) => HostelPage(),
     AppPage.library._name: (context) => LibraryPage(),
     AppPage.tasks._name: (context) => TaskPage(),
+    AppPage.notifications._name: (context) => NotificationPage(),
   };
 }

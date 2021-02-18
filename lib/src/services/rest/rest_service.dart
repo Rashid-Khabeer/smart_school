@@ -9,6 +9,7 @@ import 'package:smart_school/src/data/models/hostel_model.dart';
 import 'package:smart_school/src/data/models/lesson-plan_model.dart';
 import 'package:smart_school/src/data/models/live-class_model.dart';
 import 'package:smart_school/src/data/models/notice-board_model.dart';
+import 'package:smart_school/src/data/models/notification_model.dart';
 import 'package:smart_school/src/data/models/online-exam_model.dart';
 import 'package:smart_school/src/data/models/sign-in_model.dart';
 import 'package:smart_school/src/data/models/student-profile_model.dart';
@@ -207,5 +208,12 @@ abstract class RestService {
     @rt.Header('User-Id') String userId,
     @rt.Header('Authorization') String authKey,
     @rt.Body() DeleteTask request,
+  });
+
+  @rt.POST('/webservice/getNotifications')
+  Future<Notifications> getNotifications({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() NotificationRequest request,
   });
 }
