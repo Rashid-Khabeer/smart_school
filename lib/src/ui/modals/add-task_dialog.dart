@@ -24,17 +24,17 @@ Future openAddTaskDialog({
       builder: (context, lang) => AlertDialog(
         insetPadding: EdgeInsets.all(50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        title: Text('Add Task', style: k16BoldStyle),
+        title: Text(lang.addTask, style: k16BoldStyle),
         actions: [
           AppButtonWidget(
-            text: 'Add',
+            text: lang.add,
             onPressed: () async {
               if ((title?.isEmpty ?? true)) {
-                Toast.show('Title is Empty', context);
+                Toast.show(lang.emptyDate, context);
                 return;
               }
               if (date?.isEmpty ?? true) {
-                Toast.show('Date is Empty', context);
+                Toast.show(lang.emptyTitle, context);
                 return;
               }
               Toast.show('Adding....', context);
@@ -67,7 +67,7 @@ Future openAddTaskDialog({
               onChanged: (value) => title = value,
               maxLines: 3,
               decoration: InputDecoration(
-                labelText: 'Task Title',
+                labelText: lang.taskTitle,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(5.0),
@@ -78,7 +78,7 @@ Future openAddTaskDialog({
             SizedBox(height: 10),
             DatePickerFormField(
               onChanged: (value) => dateTime = value,
-              label: 'Task Date',
+              label: lang.taskDate,
             ),
           ],
         ),

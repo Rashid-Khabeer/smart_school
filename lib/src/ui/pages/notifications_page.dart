@@ -50,7 +50,7 @@ class _NotificationPageState extends State<NotificationPage> {
     return LocalizedView(
       builder: (ctx, lang) => Scaffold(
         appBar: AppBar(
-          title: Text('Notifications'),
+          title: Text(lang.notification),
         ),
         body: _isLoading
             ? LoadingWidget()

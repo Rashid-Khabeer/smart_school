@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/hostel_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
-import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
-import 'package:toast/toast.dart';
 
 // ignore: must_be_immutable
 class HostelBottomSheet extends StatefulWidget {
@@ -35,7 +34,7 @@ class _HostelBottomSheetState extends State<HostelBottomSheet> {
       ),
     )
         .catchError((error) {
-          print(error);
+      print(error);
       // Toast.show(ServerError.withError(error).errorMessage, context);
       _isLoading = true;
     });
@@ -53,46 +52,49 @@ class _HostelBottomSheetState extends State<HostelBottomSheet> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300,
-      child: Column(
-        children: [
-          Container(
-            color: Colors.grey,
-            padding: EdgeInsets.only(left: 10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(widget.title, style: k16BoldStyle),
-                IconButton(
-                  icon: Icon(CupertinoIcons.clear),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
+      child: LocalizedView(
+        builder: (ctx, lang) => Column(
+          children: [
+            Container(
+              color: Colors.grey,
+              padding: EdgeInsets.only(left: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(widget.title, style: k16BoldStyle),
+                  IconButton(
+                    icon: Icon(CupertinoIcons.clear),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ],
+              ),
             ),
-          ),
-          _isLoading
-              ? LoadingWidget()
-              : _detail?.data?.isEmpty ?? true
-                  ? NoDataWidget()
-                  : SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Container(
-                        child: DataTable(
-                          columns: [
-                            DataColumn(
-                                label: Text('Room Type', style: k14Style)),
-                            DataColumn(
-                                label: Text('No of Bed', style: k14Style)),
-                            DataColumn(label: Text('Room No', style: k14Style)),
-                            DataColumn(
-                                label: Text('Room Cost', style: k14Style)),
-                          ],
-                          rows: _detail?.data?.isNotEmpty ?? false
-                              ? _getDataRow(_detail.data)
-                              : [],
+            _isLoading
+                ? LoadingWidget()
+                : _detail?.data?.isEmpty ?? true
+                    ? NoDataWidget()
+                    : SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Container(
+                          child: DataTable(
+                            columns: [
+                              DataColumn(
+                                  label: Text(lang.roomType, style: k14Style)),
+                              DataColumn(
+                                  label: Text(lang.noOfBed, style: k14Style)),
+                              DataColumn(
+                                  label: Text(lang.roomNo, style: k14Style)),
+                              DataColumn(
+                                  label: Text(lang.roomCost, style: k14Style)),
+                            ],
+                            rows: _detail?.data?.isNotEmpty ?? false
+                                ? _getDataRow(_detail.data)
+                                : [],
+                          ),
                         ),
                       ),
-                    ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -121,7 +123,7 @@ class _HostelBottomSheetState extends State<HostelBottomSheet> {
           ),
           DataCell(
             Text(
-            'IQD ${e.costPerBed}',
+              'IQD ${e.costPerBed}',
               style: k14Style.copyWith(color: Colors.grey.shade600),
             ),
           ),

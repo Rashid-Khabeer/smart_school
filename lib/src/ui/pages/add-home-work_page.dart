@@ -53,7 +53,7 @@ class _AddHomeWorkPageState extends State<AddHomeWorkPage> {
                     ),
                   ),
                   AppButtonWidget(
-                    text: 'Upload',
+                    text: lang.upload,
                     onPressed: _upload,
                   ),
                 ],

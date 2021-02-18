@@ -70,7 +70,6 @@ class _AttendancePageState extends State<AttendancePage> {
       calendarController: _calendarController,
       startingDayOfWeek: StartingDayOfWeek.sunday,
       onVisibleDaysChanged: (first, second, format) {
-        print('Changed');
         _isLoading = true;
         _holidays.clear();
         setState(() {});
@@ -152,18 +151,18 @@ class _AttendancePageState extends State<AttendancePage> {
                   children: [
                     _RowItem(
                       color: Colors.green,
-                      title: 'Present',
+                      title: lang.present,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: _RowItem(
                         color: Colors.red,
-                        title: 'Absent',
+                        title: lang.absent,
                       ),
                     ),
                     _RowItem(
                       color: Colors.yellow,
-                      title: 'Late',
+                      title: lang.late,
                     ),
                   ],
                 ),
@@ -178,12 +177,12 @@ class _AttendancePageState extends State<AttendancePage> {
                   children: [
                     _RowItem(
                       color: Colors.orange,
-                      title: 'Half Day',
+                      title: lang.halfDay,
                     ),
                     SizedBox(width: 20.0),
                     _RowItem(
                       color: Colors.grey,
-                      title: 'Holiday',
+                      title: lang.holiday,
                     ),
                   ],
                 ),

@@ -112,19 +112,19 @@ class _RowItem extends StatelessWidget {
                     style: k16BoldStyle,
                   ),
                 ),
-                _exam
-                    ? TextButton.icon(
-                        onPressed: () {
+                // _exam
+                //     ? TextButton.icon(
+                //         onPressed: () {
                           // Scaffold.of(context).showBottomSheet(
                           //       (context) => FeeBottomSheet(
                           //     amountDetail: feeDetail.amountDetail,
                           //   ),
                           // );
-                        },
-                        icon: Icon(CupertinoIcons.square_favorites),
-                        label: Text('Start Exam'),
-                      )
-                    : Container(),
+                        // },
+                        // icon: Icon(CupertinoIcons.square_favorites),
+                        // label: Text(lang.startExam),
+                      // )
+                    // : Container(),
               ],
             ),
           ),

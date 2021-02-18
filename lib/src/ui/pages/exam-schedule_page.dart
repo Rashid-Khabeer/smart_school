@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/examination_model.dart';
+import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
 import 'package:toast/toast.dart';
@@ -32,7 +34,6 @@ class _ExamSchedulePageState extends State<ExamSchedulePage> {
         .catchError((error) {
       print(error);
       _error = ServerError.withError(error);
-      print(_error.errorMessage);
       Toast.show(_error.errorMessage, context);
       _isLoading = true;
     });
@@ -50,31 +51,35 @@ class _ExamSchedulePageState extends State<ExamSchedulePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Exam Schedule'),
-      ),
-      body: _isLoading
-          ? LoadingWidget()
-          : RefreshIndicator(
-              onRefresh: _fetchData,
-              child: _schedule?.detail?.isEmpty ?? true
-                  ? NoDataWidget()
-                  : ListView.builder(
-                      itemCount: _schedule?.detail?.length ?? 0,
-                      itemBuilder: (context, index) => _RowItem(
-                        data: _schedule.detail[index],
+    return LocalizedView(
+      builder: (ctx, lang) => Scaffold(
+        appBar: AppBar(
+          title: Text(lang.examSchedule),
+        ),
+        body: _isLoading
+            ? LoadingWidget()
+            : RefreshIndicator(
+                onRefresh: _fetchData,
+                child: _schedule?.detail?.isEmpty ?? true
+                    ? NoDataWidget()
+                    : ListView.builder(
+                        itemCount: _schedule?.detail?.length ?? 0,
+                        itemBuilder: (context, index) => _RowItem(
+                          data: _schedule.detail[index],
+                          lang: lang,
+                        ),
                       ),
-                    ),
-            ),
+              ),
+      ),
     );
   }
 }
 
 class _RowItem extends StatelessWidget {
   final ExamScheduleDetail data;
+  final AppLocalizations lang;
 
-  _RowItem({this.data});
+  _RowItem({this.data, this.lang});
 
   @override
   Widget build(BuildContext context) {
@@ -99,9 +104,9 @@ class _RowItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                item('Date', data.dateFrom, Icons.date_range),
-                item('Room No', data.roomNo, Icons.room),
-                item('Start Time', data.timeFrom, Icons.timer),
+                item(lang.date, data.dateFrom, Icons.date_range),
+                item(lang.roomNo, data.roomNo, Icons.room),
+                item('${lang.startTime}', data.timeFrom, Icons.timer),
               ],
             ),
           ),
@@ -109,23 +114,23 @@ class _RowItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                item('Duration', data.duration, FontAwesome5.clock),
+                item(lang.duration, data.duration, FontAwesome5.clock),
                 SizedBox(width: 5),
                 Expanded(
                   child: Text(
-                    'Max Marks\n${data.maxMarks}',
+                    '${lang.maxMarks}\n${data.maxMarks}',
                     style: k14Style,
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    'Min Marks\n${data.minMarks}',
+                    '${lang.minMarks}\n${data.minMarks}',
                     style: k14Style,
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    'Credit Hours\n${data.creditHours}',
+                    '${lang.creditHours}\n${data.creditHours}',
                     style: k14Style,
                   ),
                 ),

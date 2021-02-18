@@ -394,4 +394,160 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get otherDownloads => 'التنزيلات الأخرى';
+
+  @override
+  String get addTask => 'Add Tasks';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get emptyTitle => 'Title is empty';
+
+  @override
+  String get emptyDate => 'Date is empty';
+
+  @override
+  String get taskTitle => 'Task Title';
+
+  @override
+  String get taskDate => 'Task Date';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get feeDetails => 'Fee Details';
+
+  @override
+  String get roomType => 'Room Type';
+
+  @override
+  String get noOfBed => 'No of Bed';
+
+  @override
+  String get roomCost => 'Room cost';
+
+  @override
+  String get wait => 'Please Wait';
+
+  @override
+  String get submit => 'Submit';
+
+  @override
+  String get rating => 'Rating';
+
+  @override
+  String get addRating => 'Add Rating';
+
+  @override
+  String get comment => 'Comment';
+
+  @override
+  String get day => 'Day';
+
+  @override
+  String get room => 'Room';
+
+  @override
+  String get noScheduled => 'No Scheduled';
+
+  @override
+  String get made => 'Made';
+
+  @override
+  String get vehicleModel => 'Vehicle Model';
+
+  @override
+  String get driverLicense => 'Driver License';
+
+  @override
+  String get upload => 'Upload';
+
+  @override
+  String get present => 'Present';
+
+  @override
+  String get absent => 'Absent';
+
+  @override
+  String get late => 'Late';
+
+  @override
+  String get halfDay => 'Half Day';
+
+  @override
+  String get holiday => 'Holiday';
+
+  @override
+  String get examSchedule => 'Exam Schedule';
+
+  @override
+  String get examResult => 'Exam Result';
+
+  @override
+  String get startTime => 'Start Time';
+
+  @override
+  String get maxMarks => 'Max Marks';
+
+  @override
+  String get minMarks => 'Min Marks';
+
+  @override
+  String get creditHours => 'Credit Hours';
+
+  @override
+  String get grandTotal => 'Grand Total';
+
+  @override
+  String get iAm => 'I am';
+
+  @override
+  String get student => 'Student';
+
+  @override
+  String get parent => 'Parent';
+
+  @override
+  String get parents => 'Parents';
+
+  @override
+  String get notification => 'Notifications';
+
+  @override
+  String get startExam => 'Start Exam';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get deleteTask => 'Are you sure you want to delete this task';
+
+  @override
+  String get classTeacher => 'Class Teacher';
+
+  @override
+  String get transportRoute => 'Transport Route';
+
+  @override
+  String get assigned => 'Assigned';
+
+  @override
+  String get other => 'Other';
+
+  @override
+  String get personal => 'Personal';
+
+  @override
+  String get deleteImage => 'Delete image?';
+
+  @override
+  String get confirmLogout => 'Are you sure you want to logout';
 }

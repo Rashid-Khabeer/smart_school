@@ -108,7 +108,7 @@ class _RowItem extends StatelessWidget {
               staffId: data.staffId,
             );
           },
-          child: Text('Add Rating'),
+          child: Text(lang.addRating),
         );
       } else {
         _ratingChild = Padding(
@@ -148,7 +148,7 @@ class _RowItem extends StatelessWidget {
                       color: Colors.green,
                     ),
                     child: Text(
-                      'Class Teacher',
+                      lang.classTeacher,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

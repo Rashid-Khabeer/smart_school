@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/fee_model.dart';
 import 'package:smart_school/src/data/models/student-profile_model.dart';
-import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
@@ -69,7 +68,7 @@ class _FeesPageState extends State<FeesPage> {
                     Container(
                       color: Colors.grey.shade300,
                       padding: EdgeInsets.all(5.0),
-                      child: Text('Grand Total', style: k16BoldStyle),
+                      child: Text(lang.grandTotal, style: k16BoldStyle),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -160,7 +159,7 @@ class _RowItem extends StatelessWidget {
       _containerColor = _checkDate(feeDetail.dueDate);
     }
     return LocalizedView(
-      builder:(ctx, lang)=> Card(
+      builder: (ctx, lang) => Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -177,8 +176,8 @@ class _RowItem extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 65.0),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 2.0, horizontal: 5.0),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 2.0, horizontal: 5.0),
                         color: _containerColor,
                         child: Text(
                           feeDetail.dueDate,
@@ -189,8 +188,8 @@ class _RowItem extends StatelessWidget {
                       ),
                       Spacer(),
                       Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 2.0, horizontal: 5.0),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 2.0, horizontal: 5.0),
                         color: _color,
                         child: Text(
                           feeDetail.status,

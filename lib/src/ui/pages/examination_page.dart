@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/examination_model.dart';
 import 'package:smart_school/src/data/models/student-profile_model.dart';
+import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/pages/exam-schedule_page.dart';
@@ -68,6 +69,7 @@ class _ExaminationPageState extends State<ExaminationPage> {
                         itemCount: _examination?.detail?.length ?? 0,
                         itemBuilder: (context, index) => _RowItem(
                           data: _examination.detail[index],
+                          lang: lang,
                         ),
                       ),
               ),
@@ -78,8 +80,9 @@ class _ExaminationPageState extends State<ExaminationPage> {
 
 class _RowItem extends StatelessWidget {
   final ExaminationDetail data;
+  final AppLocalizations lang;
 
-  _RowItem({this.data});
+  _RowItem({this.data, this.lang});
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +110,7 @@ class _RowItem extends StatelessWidget {
                     Icons.request_page,
                     color: kMainColor,
                   ),
-                  label: Text('Exam Result'),
+                  label: Text(lang.examResult),
                 ),
               TextButton.icon(
                 onPressed: () => AppNavigation.to(
@@ -120,7 +123,7 @@ class _RowItem extends StatelessWidget {
                   CupertinoIcons.clock,
                   color: kMainColor,
                 ),
-                label: Text('Exam Schedule'),
+                label: Text(lang.examSchedule),
               ),
             ],
           ),

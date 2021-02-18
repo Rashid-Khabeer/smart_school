@@ -30,7 +30,7 @@ class _ImageSelectorState extends State<ImageSelector> {
 
   @override
   Widget build(BuildContext context) {
-    lang=AppLocalizations.of(context);
+    lang = AppLocalizations.of(context);
     Widget child;
 
     if (images?.isEmpty ?? null) {
@@ -59,7 +59,7 @@ class _ImageSelectorState extends State<ImageSelector> {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: Text('Delete image?'),
+                title: Text(lang.deleteImage),
                 actions: [
                   FlatButton(
                     onPressed: () {
@@ -67,11 +67,11 @@ class _ImageSelectorState extends State<ImageSelector> {
                       Navigator.of(context).pop();
                       setState(() {});
                     },
-                    child: Text('Yes'),
+                    child: Text(lang.yes),
                   ),
                   FlatButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: Text('No'),
+                    child: Text(lang.no),
                   ),
                 ],
               ),

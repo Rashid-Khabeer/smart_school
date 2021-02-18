@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_school/src/data/models/transport_model.dart';
+import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/utility/constants.dart';
 
 class TransportBottomSheet extends StatelessWidget {
@@ -32,33 +33,39 @@ class TransportBottomSheet extends StatelessWidget {
             ),
           ),
           SingleChildScrollView(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Vehicle No: \t\t${vehicle.vehicleNo}', style: k14Style),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
-                    child: Text('Vehicle Model: \t\t${vehicle.vehicleModel}',
+            child: LocalizedView(
+              builder: (ctx, lang) => Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('${lang.vehicleNo}: \t\t${vehicle.vehicleNo}',
                         style: k14Style),
-                  ),
-                  Text('Made: \t\t${vehicle.manufacturerYear}',
-                      style: k14Style),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
-                    child: Text('Driver Name: \t\t${vehicle.driverName}',
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Text(
+                          '${lang.vehicleModel}: \t\t${vehicle.vehicleModel}',
+                          style: k14Style),
+                    ),
+                    Text('${lang.made}: \t\t${vehicle.manufacturerYear}',
                         style: k14Style),
-                  ),
-                  Text('Driver License: \t\t${vehicle.driverLicense}',
-                      style: k14Style),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
-                    child: Text('Driver Contact: \t\t${vehicle.driverContact}',
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Text(
+                          '${lang.driverName}: \t\t${vehicle.driverName}',
+                          style: k14Style),
+                    ),
+                    Text('${lang.driverLicense}: \t\t${vehicle.driverLicense}',
                         style: k14Style),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Text(
+                          '${lang.driverContact}: \t\t${vehicle.driverContact}',
+                          style: k14Style),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -20,11 +20,11 @@ Future openConfirmationDialog({
             content: Text(content, style: k14SimpleStyle),
             actions: [
               AppButtonWidget(
-                text: 'Yes',
+                text: lang.yes,
                 onPressed: () => Navigator.of(context).pop(true),
               ),
               AppButtonWidget(
-                text: 'No',
+                text: lang.no,
                 onPressed: () => Navigator.of(context).pop(false),
               ),
             ],

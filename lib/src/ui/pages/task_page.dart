@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/tasks_model.dart';
+import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/modals/add-task_dialog.dart';
@@ -66,6 +67,7 @@ class _TaskPageState extends State<TaskPage> {
                         itemCount: _tasks?.tasks?.length ?? 0,
                         itemBuilder: (context, index) => _RowItem(
                           data: _tasks.tasks[index],
+                          lang: lang,
                           onChanged: () {
                             _isLoading = true;
                             setState(() {});
@@ -77,7 +79,6 @@ class _TaskPageState extends State<TaskPage> {
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
             await openAddTaskDialog(context: context);
-            print('After');
             _isLoading = true;
             setState(() {});
             _getData();
@@ -93,8 +94,9 @@ class _TaskPageState extends State<TaskPage> {
 class _RowItem extends StatelessWidget {
   final TasksData data;
   final Function onChanged;
+  final AppLocalizations lang;
 
-  _RowItem({this.data, this.onChanged});
+  _RowItem({this.data, this.onChanged, this.lang});
 
   var _context;
 
@@ -127,13 +129,13 @@ class _RowItem extends StatelessWidget {
       actionPane: SlidableDrawerActionPane(),
       secondaryActions: [
         IconSlideAction(
-          caption: 'Delete',
+          caption: lang.delete,
           color: Colors.red,
           icon: Icons.delete,
           onTap: () async {
             if ((await openConfirmationDialog(
-              title: 'Confirm',
-              content: 'Are you sure you want to delete this task',
+              title: lang.confirm,
+              content: lang.deleteTask,
               context: context,
             ))) _delete();
           },

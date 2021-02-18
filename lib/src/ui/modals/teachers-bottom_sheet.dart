@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_school/src/data/models/teachers_model.dart';
+import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/utility/constants.dart';
 
+// ignore: must_be_immutable
 class TeachersBottomSheet extends StatelessWidget {
   final List<TeachersSubject> subjects;
+  AppLocalizations lang;
 
   TeachersBottomSheet({this.subjects});
 
   @override
   Widget build(BuildContext context) {
+    lang = AppLocalizations.of(context);
     return SizedBox(
       height: 300,
       child: SingleChildScrollView(
@@ -32,10 +36,10 @@ class TeachersBottomSheet extends StatelessWidget {
               child: Container(
                 child: DataTable(
                   columns: [
-                    DataColumn(label: Text('Time', style: k16BoldStyle)),
-                    DataColumn(label: Text('Day', style: k16BoldStyle)),
-                    DataColumn(label: Text('Subject', style: k16BoldStyle)),
-                    DataColumn(label: Text('Room', style: k16BoldStyle)),
+                    DataColumn(label: Text(lang.time, style: k16BoldStyle)),
+                    DataColumn(label: Text(lang.day, style: k16BoldStyle)),
+                    DataColumn(label: Text(lang.subject, style: k16BoldStyle)),
+                    DataColumn(label: Text(lang.room, style: k16BoldStyle)),
                   ],
                   rows: subjects?.isNotEmpty ?? false ? _getDataRow() : [],
                 ),
@@ -55,7 +59,7 @@ class TeachersBottomSheet extends StatelessWidget {
             Text(
               e.timeFrom != ''
                   ? '${e.timeFrom} - \n${e.timeTo}'
-                  : 'Not Scheduled',
+                  : lang.noScheduled,
               style: k14Style.copyWith(color: Colors.grey.shade600),
             ),
           ),

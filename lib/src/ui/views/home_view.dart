@@ -172,8 +172,8 @@ class _HomeViewState extends State<HomeView> {
                     title: lang.logOut,
                     onTap: () async {
                       if ((await openConfirmationDialog(
-                        title: 'Confirm',
-                        content: 'Are you sure you want to logout',
+                        title: lang.confirm,
+                        content: lang.confirmLogout,
                         context: context,
                       ))) _signOut();
                     },

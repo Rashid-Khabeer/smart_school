@@ -152,7 +152,7 @@ class _RowItem extends StatelessWidget {
                               vertical: 2.0, horizontal: 5.0),
                           color: _isComplete ? Colors.green : Colors.red,
                           child: Text(
-                            _isComplete ? 'Complete' : 'Incomplete',
+                            _isComplete ? lang.complete : lang.incomplete,
                             style: k14Style.copyWith(
                               color: Colors.white,
                             ),

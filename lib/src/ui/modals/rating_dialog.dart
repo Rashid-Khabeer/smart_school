@@ -22,10 +22,10 @@ openRatingDialog({
       builder: (context, lang) => AlertDialog(
         insetPadding: EdgeInsets.all(50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        title: Text('Rating', style: k16BoldStyle),
+        title: Text(lang.rating, style: k16BoldStyle),
         actions: [
           AppButtonWidget(
-            text: 'Submit',
+            text: lang.submit,
             onPressed: () async {
               if ((rating?.isEmpty ?? true) || rating == '0.0') {
                 Toast.show('Rating is Empty', context);
@@ -67,7 +67,7 @@ openRatingDialog({
           children: <Widget>[
             Row(
               children: [
-                Text('Add Rating'),
+                Text(lang.addRating),
                 SizedBox(width: 5.0),
                 SmoothStarRating(
                   starCount: 5,
@@ -83,7 +83,7 @@ openRatingDialog({
             SizedBox(height: 5),
             Row(
               children: [
-                Text('Comment'),
+                Text(lang.comment),
                 SizedBox(width: 5.0),
                 Expanded(
                   child: SizedBox(

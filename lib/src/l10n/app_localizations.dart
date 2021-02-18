@@ -475,6 +475,162 @@ abstract class AppLocalizations {
 
   // No description provided in @otherDownloads
   String get otherDownloads;
+
+  // No description provided in @addTask
+  String get addTask;
+
+  // No description provided in @add
+  String get add;
+
+  // No description provided in @emptyTitle
+  String get emptyTitle;
+
+  // No description provided in @emptyDate
+  String get emptyDate;
+
+  // No description provided in @taskTitle
+  String get taskTitle;
+
+  // No description provided in @taskDate
+  String get taskDate;
+
+  // No description provided in @yes
+  String get yes;
+
+  // No description provided in @no
+  String get no;
+
+  // No description provided in @feeDetails
+  String get feeDetails;
+
+  // No description provided in @roomType
+  String get roomType;
+
+  // No description provided in @noOfBed
+  String get noOfBed;
+
+  // No description provided in @roomCost
+  String get roomCost;
+
+  // No description provided in @wait
+  String get wait;
+
+  // No description provided in @submit
+  String get submit;
+
+  // No description provided in @rating
+  String get rating;
+
+  // No description provided in @addRating
+  String get addRating;
+
+  // No description provided in @comment
+  String get comment;
+
+  // No description provided in @day
+  String get day;
+
+  // No description provided in @room
+  String get room;
+
+  // No description provided in @noScheduled
+  String get noScheduled;
+
+  // No description provided in @made
+  String get made;
+
+  // No description provided in @vehicleModel
+  String get vehicleModel;
+
+  // No description provided in @driverLicense
+  String get driverLicense;
+
+  // No description provided in @upload
+  String get upload;
+
+  // No description provided in @present
+  String get present;
+
+  // No description provided in @absent
+  String get absent;
+
+  // No description provided in @late
+  String get late;
+
+  // No description provided in @halfDay
+  String get halfDay;
+
+  // No description provided in @holiday
+  String get holiday;
+
+  // No description provided in @examSchedule
+  String get examSchedule;
+
+  // No description provided in @examResult
+  String get examResult;
+
+  // No description provided in @startTime
+  String get startTime;
+
+  // No description provided in @maxMarks
+  String get maxMarks;
+
+  // No description provided in @minMarks
+  String get minMarks;
+
+  // No description provided in @creditHours
+  String get creditHours;
+
+  // No description provided in @grandTotal
+  String get grandTotal;
+
+  // No description provided in @iAm
+  String get iAm;
+
+  // No description provided in @student
+  String get student;
+
+  // No description provided in @parent
+  String get parent;
+
+  // No description provided in @parents
+  String get parents;
+
+  // No description provided in @notification
+  String get notification;
+
+  // No description provided in @startExam
+  String get startExam;
+
+  // No description provided in @delete
+  String get delete;
+
+  // No description provided in @confirm
+  String get confirm;
+
+  // No description provided in @deleteTask
+  String get deleteTask;
+
+  // No description provided in @classTeacher
+  String get classTeacher;
+
+  // No description provided in @transportRoute
+  String get transportRoute;
+
+  // No description provided in @assigned
+  String get assigned;
+
+  // No description provided in @other
+  String get other;
+
+  // No description provided in @personal
+  String get personal;
+
+  // No description provided in @deleteImage
+  String get deleteImage;
+
+  // No description provided in @confirmLogout
+  String get confirmLogout;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

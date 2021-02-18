@@ -66,14 +66,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         iconData: CupertinoIcons.mail,
                         onSaved: (value) => _request.email = value,
                         textInputType: TextInputType.emailAddress,
-                        labelText: 'Email',
+                        labelText: lang.email,
                         validator: emailValidator,
                       ),
                     ),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'I am',
+                        lang.iAm,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
@@ -117,7 +117,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       width: double.infinity,
                       height: 40,
                       child: AppButtonWidget(
-                        text: 'Submit',
+                        text: lang.submit,
                         onPressed: _forgot,
                       ),
                     ),

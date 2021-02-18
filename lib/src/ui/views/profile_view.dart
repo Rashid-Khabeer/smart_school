@@ -5,6 +5,7 @@ import 'package:smart_school/src/data/models/student-profile_model.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
+import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
 import 'package:smart_school/src/utility/constants.dart';
 import 'package:toast/toast.dart';
 
@@ -16,6 +17,7 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
+  var _isLoading = true;
 
   StudentProfile _profile = StudentProfile();
 
@@ -42,6 +44,7 @@ class _ProfileViewState extends State<ProfileView>
       print(_error.errorMessage);
       Toast.show(_error.errorMessage, context);
     });
+    _isLoading = false;
     setState(() {});
   }
 
@@ -54,6 +57,7 @@ class _ProfileViewState extends State<ProfileView>
         height: MediaQuery.of(context).size.height,
         child: Column(
           children: [
+            if (_isLoading) LoadingWidget(),
             SizedBox(height: 15.0),
             Row(
               children: [
@@ -101,13 +105,13 @@ class _ProfileViewState extends State<ProfileView>
               controller: _tabController,
               tabs: [
                 Tab(
-                  child: Text('Personal', style: kSimpleStyle),
+                  child: Text(lang.personal, style: kSimpleStyle),
                 ),
                 Tab(
-                  child: Text('Parents', style: kSimpleStyle),
+                  child: Text(lang.parents, style: kSimpleStyle),
                 ),
                 Tab(
-                  child: Text('Other', style: kSimpleStyle),
+                  child: Text(lang.other, style: kSimpleStyle),
                 ),
               ],
             ),
