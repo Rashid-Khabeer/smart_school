@@ -160,6 +160,8 @@ class _HomeViewState extends State<HomeView> {
                   _CardWidget(
                     icon: CupertinoIcons.list_number,
                     title: lang.task,
+                    onTap: () =>
+                        AppNavigation.toPage(context, AppPage.tasks),
                   ),
                   _CardWidget(
                     icon: CupertinoIcons.globe,

@@ -13,6 +13,7 @@ import 'package:smart_school/src/data/models/online-exam_model.dart';
 import 'package:smart_school/src/data/models/sign-in_model.dart';
 import 'package:smart_school/src/data/models/student-profile_model.dart';
 import 'package:smart_school/src/data/models/student-syllabus_model.dart';
+import 'package:smart_school/src/data/models/tasks_model.dart';
 import 'package:smart_school/src/data/models/teachers_model.dart';
 import 'package:smart_school/src/data/models/time-table_model.dart';
 import 'package:smart_school/src/data/models/transport_model.dart';
@@ -178,5 +179,33 @@ abstract class RestService {
     @rt.Header('User-Id') String userId,
     @rt.Header('Authorization') String authKey,
     @rt.Body() HostelDetailRequest request,
+  });
+
+  @rt.POST('/webservice/getTask')
+  Future<Tasks> getTasks({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() TasksRequest request,
+  });
+
+  @rt.POST('/webservice/addTask')
+  Future<RatingResponse> addTask({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() AddTask request,
+  });
+
+  @rt.POST('/webservice/updateTask')
+  Future<RatingResponse> updateTask({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() UpdateTask request,
+  });
+
+  @rt.POST('/webservice/deleteTask')
+  Future<RatingResponse> deleteTask({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() DeleteTask request,
   });
 }

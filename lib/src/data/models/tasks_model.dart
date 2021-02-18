@@ -17,9 +17,9 @@ class TasksRequest {
 
 @JsonSerializable(explicitToJson: true)
 class Tasks {
-  List<TasksData> data;
+  List<TasksData> tasks;
 
-  Tasks({this.data});
+  Tasks({this.tasks});
 
   factory Tasks.fromJson(Map<String, dynamic> json) => _$TasksFromJson(json);
 
@@ -47,4 +47,51 @@ class TasksData {
       _$TasksDataFromJson(json);
 
   Map<String, dynamic> toJson() => _$TasksDataToJson(this);
+}
+
+@JsonSerializable()
+class AddTask {
+  @JsonKey(name: 'user_id')
+  String userId;
+  @JsonKey(name: 'event_title')
+  String title;
+  String date;
+
+  AddTask({
+    this.title,
+    this.userId,
+    this.date,
+  });
+
+  factory AddTask.fromJson(Map<String, dynamic> json) =>
+      _$AddTaskFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AddTaskToJson(this);
+}
+
+@JsonSerializable()
+class UpdateTask {
+  @JsonKey(name: 'task_id')
+  String id;
+  String status;
+
+  UpdateTask({this.status, this.id});
+
+  factory UpdateTask.fromJson(Map<String, dynamic> json) =>
+      _$UpdateTaskFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UpdateTaskToJson(this);
+}
+
+@JsonSerializable()
+class DeleteTask {
+  @JsonKey(name: 'task_id')
+  String id;
+
+  DeleteTask({this.id});
+
+  factory DeleteTask.fromJson(Map<String, dynamic> json) =>
+      _$DeleteTaskFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DeleteTaskToJson(this);
 }
