@@ -6,8 +6,10 @@ import 'package:smart_school/src/data/models/library_model.dart';
 import 'package:smart_school/src/services/rest/library_service.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/pages/library-books_page.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
+import 'package:smart_school/src/utility/nav.dart';
 import 'package:toast/toast.dart';
 
 class LibraryPage extends StatefulWidget {
@@ -62,6 +64,21 @@ class _LibraryPageState extends State<LibraryPage> {
       builder: (ctx, lang) => Scaffold(
         appBar: AppBar(
           title: Text(lang.library),
+          actions: [
+            TextButton(
+              onPressed: () => AppNavigation.to(
+                context,
+                LibraryBooksPage(),
+              ),
+              child: Text(
+                lang.books,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14.0,
+                ),
+              ),
+            ),
+          ],
         ),
         body: _isLoading
             ? LoadingWidget()

@@ -66,7 +66,7 @@ class LibraryIssued {
 
 @JsonSerializable(explicitToJson: true)
 class LibraryBooks {
-  String success;
+  int success;
 
   List<LibraryBooksData> data;
 
