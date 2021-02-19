@@ -550,4 +550,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmLogout => 'Are you sure you want to logout';
+
+  @override
+  String get consolidate => 'Consolidate MarkSheet';
+
+  @override
+  String get obtainedMarks => 'Marks Obtained';
+
+  @override
+  String get passingMarks => 'Passing Obtained';
+
+  @override
+  String get result => 'Result';
+
+  @override
+  String get note => 'Note';
+
+  @override
+  String get percentage => 'Percentage';
+
+  @override
+  String get division => 'Division';
+
+  @override
+  String get books => 'Books';
+
+  @override
+  String get booksIssued => 'Books Issued';
+
+  @override
+  String get author => 'Author';
+
+  @override
+  String get addedOn => 'Added On';
+
+  @override
+  String get packNo => 'Pack No';
+
+  @override
+  String get quantity => 'Quantity';
+
+  @override
+  String get price => 'Price';
+
+  @override
+  String get publisher => 'Publisher';
+
+  @override
+  String get issuedDate => 'Issued Date';
+
+  @override
+  String get bookNo => 'Book No';
+
+  @override
+  String get dueReturnDate => 'Due Return Date';
+
+  @override
+  String get returnDate => 'Return Date';
+
+  @override
+  String get notReturned => 'Not Returned';
+
+  @override
+  String get returned => 'Returned';
 }

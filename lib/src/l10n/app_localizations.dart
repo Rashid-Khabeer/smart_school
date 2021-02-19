@@ -631,6 +631,69 @@ abstract class AppLocalizations {
 
   // No description provided in @confirmLogout
   String get confirmLogout;
+
+  // No description provided in @consolidate
+  String get consolidate;
+
+  // No description provided in @obtainedMarks
+  String get obtainedMarks;
+
+  // No description provided in @passingMarks
+  String get passingMarks;
+
+  // No description provided in @result
+  String get result;
+
+  // No description provided in @note
+  String get note;
+
+  // No description provided in @percentage
+  String get percentage;
+
+  // No description provided in @division
+  String get division;
+
+  // No description provided in @books
+  String get books;
+
+  // No description provided in @booksIssued
+  String get booksIssued;
+
+  // No description provided in @author
+  String get author;
+
+  // No description provided in @addedOn
+  String get addedOn;
+
+  // No description provided in @packNo
+  String get packNo;
+
+  // No description provided in @quantity
+  String get quantity;
+
+  // No description provided in @price
+  String get price;
+
+  // No description provided in @publisher
+  String get publisher;
+
+  // No description provided in @issuedDate
+  String get issuedDate;
+
+  // No description provided in @bookNo
+  String get bookNo;
+
+  // No description provided in @dueReturnDate
+  String get dueReturnDate;
+
+  // No description provided in @returnDate
+  String get returnDate;
+
+  // No description provided in @notReturned
+  String get notReturned;
+
+  // No description provided in @returned
+  String get returned;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

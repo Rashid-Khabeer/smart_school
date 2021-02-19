@@ -201,7 +201,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get vehicleNo => 'رقم المركب';
 
   @override
-  String get driverName => 'اسم برنامج التشغيل';
+  String get driverName => 'اسم السایق';
 
   @override
   String get driverContact => 'سائق الاتصال';
@@ -288,7 +288,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get subject => 'الموضوع';
 
   @override
-  String get roomNo => 'غرفة لا';
+  String get roomNo => 'رقم غرفة';
 
   @override
   String get homeWork => 'العمل المنزلي';
@@ -396,158 +396,221 @@ class AppLocalizationsAr extends AppLocalizations {
   String get otherDownloads => 'التنزيلات الأخرى';
 
   @override
-  String get addTask => 'Add Tasks';
+  String get addTask => 'إضافة مهام';
 
   @override
-  String get add => 'Add';
+  String get add => 'إضافة ';
 
   @override
-  String get emptyTitle => 'Title is empty';
+  String get emptyTitle => 'العنوان فارغ';
 
   @override
-  String get emptyDate => 'Date is empty';
+  String get emptyDate => 'التاريخ فارغ';
 
   @override
-  String get taskTitle => 'Task Title';
+  String get taskTitle => 'عنوان المهمة';
 
   @override
-  String get taskDate => 'Task Date';
+  String get taskDate => 'تاريخ المهمة';
 
   @override
-  String get yes => 'Yes';
+  String get yes => 'نعم';
 
   @override
-  String get no => 'No';
+  String get no => 'لا';
 
   @override
-  String get feeDetails => 'Fee Details';
+  String get feeDetails => 'تفاصيل الرسوم';
 
   @override
-  String get roomType => 'Room Type';
+  String get roomType => 'نوع الغرفة';
 
   @override
-  String get noOfBed => 'No of Bed';
+  String get noOfBed => 'عدد من السرير';
 
   @override
-  String get roomCost => 'Room cost';
+  String get roomCost => 'تكلفة الغرفة';
 
   @override
-  String get wait => 'Please Wait';
+  String get wait => 'الرجاء الانتظار';
 
   @override
-  String get submit => 'Submit';
+  String get submit => 'إرسال';
 
   @override
-  String get rating => 'Rating';
+  String get rating => 'تقييم الموقع';
 
   @override
-  String get addRating => 'Add Rating';
+  String get addRating => 'إضافة تصنيف';
 
   @override
-  String get comment => 'Comment';
+  String get comment => 'التعليق';
 
   @override
-  String get day => 'Day';
+  String get day => 'الیوم';
 
   @override
-  String get room => 'Room';
+  String get room => 'الغرفە';
 
   @override
-  String get noScheduled => 'No Scheduled';
+  String get noScheduled => 'لا مجدول';
 
   @override
-  String get made => 'Made';
+  String get made => 'صنع';
 
   @override
-  String get vehicleModel => 'Vehicle Model';
+  String get vehicleModel => 'نموذج السيارة';
 
   @override
-  String get driverLicense => 'Driver License';
+  String get driverLicense => 'اجازە السایق';
 
   @override
-  String get upload => 'Upload';
+  String get upload => 'تحميل';
 
   @override
-  String get present => 'Present';
+  String get present => 'الحاضر';
 
   @override
-  String get absent => 'Absent';
+  String get absent => 'غائیب';
 
   @override
-  String get late => 'Late';
+  String get late => 'متاخر';
 
   @override
-  String get halfDay => 'Half Day';
+  String get halfDay => 'نصف يوم';
 
   @override
-  String get holiday => 'Holiday';
+  String get holiday => 'عطله';
 
   @override
-  String get examSchedule => 'Exam Schedule';
+  String get examSchedule => 'جدول الامتحانات';
 
   @override
-  String get examResult => 'Exam Result';
+  String get examResult => 'نتيجة الامتحان';
 
   @override
-  String get startTime => 'Start Time';
+  String get startTime => 'وقت البدء';
 
   @override
-  String get maxMarks => 'Max Marks';
+  String get maxMarks => 'اعلی الدرجة';
 
   @override
-  String get minMarks => 'Min Marks';
+  String get minMarks => 'اقل الدرجة';
 
   @override
-  String get creditHours => 'Credit Hours';
+  String get creditHours => 'الساعات الائتمانية';
 
   @override
-  String get grandTotal => 'Grand Total';
+  String get grandTotal => 'المجموع الكلي';
 
   @override
-  String get iAm => 'I am';
+  String get iAm => 'انا';
 
   @override
-  String get student => 'Student';
+  String get student => 'طالب';
 
   @override
-  String get parent => 'Parent';
+  String get parent => 'الوالدين';
 
   @override
-  String get parents => 'Parents';
+  String get parents => 'الوالدين';
 
   @override
-  String get notification => 'Notifications';
+  String get notification => 'اعلامات';
 
   @override
-  String get startExam => 'Start Exam';
+  String get startExam => 'اختبار البدء';
 
   @override
-  String get delete => 'Delete';
+  String get delete => 'مسح';
 
   @override
-  String get confirm => 'Confirm';
+  String get confirm => 'متئکد';
 
   @override
-  String get deleteTask => 'Are you sure you want to delete this task';
+  String get deleteTask => 'هل تريد بالتأكيد حذف هذه المهمة';
 
   @override
-  String get classTeacher => 'Class Teacher';
+  String get classTeacher => 'معلمة فصل';
 
   @override
-  String get transportRoute => 'Transport Route';
+  String get transportRoute => 'طريق النقل';
 
   @override
-  String get assigned => 'Assigned';
+  String get assigned => 'تم تعيينها';
 
   @override
-  String get other => 'Other';
+  String get other => 'الاخري';
 
   @override
-  String get personal => 'Personal';
+  String get personal => 'الشخصيه';
 
   @override
-  String get deleteImage => 'Delete image?';
+  String get deleteImage => 'هل تريد حذف الصورة؟';
 
   @override
-  String get confirmLogout => 'Are you sure you want to logout';
+  String get confirmLogout => 'هل تريد بالتأكيد تسجيل الخروج';
+
+  @override
+  String get consolidate => 'Consolidate MarkSheet';
+
+  @override
+  String get obtainedMarks => 'Marks Obtained';
+
+  @override
+  String get passingMarks => 'Passing Obtained';
+
+  @override
+  String get result => 'Result';
+
+  @override
+  String get note => 'Note';
+
+  @override
+  String get percentage => 'Percentage';
+
+  @override
+  String get division => 'Division';
+
+  @override
+  String get books => 'Books';
+
+  @override
+  String get booksIssued => 'Books Issued';
+
+  @override
+  String get author => 'Author';
+
+  @override
+  String get addedOn => 'Added On';
+
+  @override
+  String get packNo => 'Pack No';
+
+  @override
+  String get quantity => 'Quantity';
+
+  @override
+  String get price => 'Price';
+
+  @override
+  String get publisher => 'Publisher';
+
+  @override
+  String get issuedDate => 'Issued Date';
+
+  @override
+  String get bookNo => 'Book No';
+
+  @override
+  String get dueReturnDate => 'Due Return Date';
+
+  @override
+  String get returnDate => 'Return Date';
+
+  @override
+  String get notReturned => 'Not Returned';
+
+  @override
+  String get returned => 'Returned';
 }

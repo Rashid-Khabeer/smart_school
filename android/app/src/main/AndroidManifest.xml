@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="smart_school"
+        android:label="Lezan School"
         android:icon="@mipmap/ic_launcher">
         <provider
             android:name="vn.hunghd.flutterdownloader.DownloadedFileProvider"
