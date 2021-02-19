@@ -54,7 +54,7 @@ class ExamResultRequest {
 
 @JsonSerializable(explicitToJson: true)
 class ExamResult {
-  ExaminationDetail exam;
+  ExamResultDetail exam;
 
   ExamResult({this.exam});
 
@@ -70,21 +70,21 @@ class ExamResultDetail {
   @JsonKey(name: "exam_type")
   String examType;
   @JsonKey(name: "exam_credit_hour")
-  String examCreditHour;
+  int examCreditHour;
   @JsonKey(name: "exam_quality_points")
-  String examQualityPoints;
+  int examQualityPoints;
   @JsonKey(name: "exam_grade")
   String examGrade;
   @JsonKey(name: "is_consolidate")
-  String isConsolidate;
+  int isConsolidate;
   @JsonKey(name: "percentage")
-  String percentage;
+  int percentage;
   @JsonKey(name: "division")
   String division;
   @JsonKey(name: "total_get_marks")
-  String getMarks;
+  int getMarks;
   @JsonKey(name: "total_max_marks")
-  String totalMarks;
+  int totalMarks;
   @JsonKey(name: "exam_result_status")
   String resultStatus;
   @JsonKey(name: "subject_result")

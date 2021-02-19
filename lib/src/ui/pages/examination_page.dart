@@ -7,6 +7,7 @@ import 'package:smart_school/src/data/models/student-profile_model.dart';
 import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/pages/exam-result_page.dart';
 import 'package:smart_school/src/ui/pages/exam-schedule_page.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
@@ -105,7 +106,12 @@ class _RowItem extends StatelessWidget {
             children: [
               if (data.resultPublish != '0')
                 TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () => AppNavigation.to(
+                    context,
+                    ExamResultPage(
+                      id: data.examId,
+                    ),
+                  ),
                   icon: Icon(
                     Icons.request_page,
                     color: kMainColor,

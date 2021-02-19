@@ -147,6 +147,13 @@ abstract class RestService {
     @rt.Body() ExamScheduleRequest request,
   });
 
+  @rt.POST('/webservice/getExamResult')
+  Future<ExamResult> getExamResult({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() ExamResultRequest request,
+  });
+
   @rt.POST('/webservice/getTeachersList')
   Future<Teachers> getTeachersList({
     @rt.Header('User-Id') String userId,
