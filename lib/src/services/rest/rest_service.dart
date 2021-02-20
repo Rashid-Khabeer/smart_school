@@ -231,6 +231,13 @@ abstract class RestService {
     @rt.Body() NotificationRequest request,
   });
 
+  @rt.POST('/webservice/getLibraryBookIssued')
+  Future<dynamic> getIssuedBooks({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() LibraryRequest request,
+  });
+
   @rt.GET('/webservice/getLibraryBooks')
   Future<LibraryBooks> getBooks({
     @rt.Header('User-Id') String userId,

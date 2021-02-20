@@ -196,6 +196,7 @@ class _SignInPageState extends State<SignInPage> {
         Navigator.of(context).pop();
         AppNavigation.toPage(context, AppPage.home);
       } else
+        Navigator.of(context).pop();
         Toast.show(
           _error.errorMessage,
           context,

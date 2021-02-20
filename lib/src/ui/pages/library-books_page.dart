@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/library_model.dart';
 import 'package:smart_school/src/l10n/app_localizations.dart';
@@ -87,7 +88,7 @@ class _RowItem extends StatelessWidget {
             padding: EdgeInsets.all(10.0),
             child: Row(
               children: [
-                Icon(CupertinoIcons.book),
+                Icon(FontAwesome.book),
                 SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,7 +108,7 @@ class _RowItem extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(10.0, 10.0, 60.0, 10.0),
             child: Row(
               children: [
-                Icon(CupertinoIcons.book),
+                Icon(FontAwesome.book),
                 SizedBox(width: 5.0),
                 Text(
                   '${lang.subject}\n${data.subject}',

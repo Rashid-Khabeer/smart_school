@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/data/models/examination_model.dart';
-import 'package:smart_school/src/l10n/app_localizations.dart';
 import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
