@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:smart_school/src/l10n/app_localizations.dart';
 
 class ImageSelector extends StatefulWidget {
-  final List<File> images;
-  final Function(List<File> file) onChanged;
+  final File image;
+  final Function(File file) onChanged;
 
   ImageSelector({
-    this.images,
+    this.image,
     @required this.onChanged,
   }) : assert(onChanged != null);
 
@@ -18,14 +18,14 @@ class ImageSelector extends StatefulWidget {
 }
 
 class _ImageSelectorState extends State<ImageSelector> {
-  List<File> images;
+  File image;
   final _picker = ImagePicker();
   AppLocalizations lang;
 
   @override
   void initState() {
     super.initState();
-    images = widget.images ?? [];
+    image = widget.image;
   }
 
   @override
@@ -33,7 +33,7 @@ class _ImageSelectorState extends State<ImageSelector> {
     lang = AppLocalizations.of(context);
     Widget child;
 
-    if (images?.isEmpty ?? null) {
+    if (image == null) {
       child = Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -51,38 +51,35 @@ class _ImageSelectorState extends State<ImageSelector> {
         ],
       );
     } else {
-      child = ListView.builder(
-        itemCount: images.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, i) => GestureDetector(
-          onLongPress: () {
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                title: Text(lang.deleteImage),
-                actions: [
-                  FlatButton(
-                    onPressed: () {
-                      images.removeAt(i);
-                      Navigator.of(context).pop();
-                      setState(() {});
-                    },
-                    child: Text(lang.yes),
-                  ),
-                  FlatButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: Text(lang.no),
-                  ),
-                ],
-              ),
-            );
-          },
-          child: Image.file(
-            images[i],
-            width: 150,
-            height: 150,
-            fit: BoxFit.cover,
-          ),
+      child = GestureDetector(
+        onLongPress: () {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text(lang.deleteImage),
+              actions: [
+                FlatButton(
+                  onPressed: () {
+                    image = null;
+                    widget.onChanged(image);
+                    Navigator.of(context).pop();
+                    setState(() {});
+                  },
+                  child: Text(lang.yes),
+                ),
+                FlatButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(lang.no),
+                ),
+              ],
+            ),
+          );
+        },
+        child: Image.file(
+          image,
+          width: 150,
+          height: 150,
+          fit: BoxFit.cover,
         ),
       );
     }
@@ -125,18 +122,20 @@ class _ImageSelectorState extends State<ImageSelector> {
   _imgFromCamera() async {
     final pickedImage =
         await _picker.getImage(source: ImageSource.camera, imageQuality: 50);
-    setState(() {
-      images.add(File(pickedImage.path));
-      widget.onChanged(images);
-    });
+    if (pickedImage != null)
+      setState(() {
+        image = File(pickedImage.path);
+        widget.onChanged(image);
+      });
   }
 
   _imgFromGallery() async {
     final pickedImage =
         await _picker.getImage(source: ImageSource.gallery, imageQuality: 50);
-    setState(() {
-      images.add(File(pickedImage.path));
-      widget.onChanged(images);
-    });
+    if (pickedImage != null)
+      setState(() {
+        image = File(pickedImage.path);
+        widget.onChanged(image);
+      });
   }
 }

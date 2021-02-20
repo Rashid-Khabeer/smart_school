@@ -1,6 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:smart_school/src/data/data.dart';
+import 'package:smart_school/src/services/rest/rest_service.dart';
+import 'package:smart_school/src/services/server_error.dart';
+import 'package:smart_school/src/ui/modals/loading_dialog.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/button_widget.dart';
 import 'package:smart_school/src/ui/widgets/images-selector_widget.dart';
@@ -18,7 +22,7 @@ class AddHomeWorkPage extends StatefulWidget {
 }
 
 class _AddHomeWorkPageState extends State<AddHomeWorkPage> {
-  List<File> _images = [];
+  File _image;
   String _message;
   final _formKey = GlobalKey<FormState>();
   var _mode = AutovalidateMode.disabled;
@@ -48,8 +52,8 @@ class _AddHomeWorkPageState extends State<AddHomeWorkPage> {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 10.0),
                     child: ImageSelector(
-                      images: _images,
-                      onChanged: (value) => _images = value,
+                      image: _image,
+                      onChanged: (value) => _image = value,
                     ),
                   ),
                   AppButtonWidget(
@@ -65,14 +69,37 @@ class _AddHomeWorkPageState extends State<AddHomeWorkPage> {
     );
   }
 
-  _upload() {
+  _upload() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      if (_images.isEmpty) {
+      if (_image == null) {
         Toast.show('Please select image', context);
         return;
       }
-      print(_message);
+      FocusScopeNode currentFocus = FocusScope.of(context);
+      if (!currentFocus.hasPrimaryFocus) currentFocus.unfocus();
+      openLoadingDialog(context: context);
+      ServerError _error;
+      final _response = await RestService()
+          .addHomeWork(
+        authKey: AppData().readLastUser().token,
+        userId: AppData().readLastUser().userId,
+        file: _image,
+        message: _message,
+        student_id: AppData().readLastUser().studentRecord.studentId,
+        homework_id: widget.workId,
+      )
+          .catchError((e) {
+        _error = ServerError.withError(e);
+        print(e);
+        Toast.show(_error.errorMessage, context);
+      });
+      Navigator.of(context).pop();
+      if (_error == null) {
+        print(_response);
+        Toast.show(_response.toString(), context);
+        Navigator.of(context).pop();
+      }
     } else
       setState(() => _mode = AutovalidateMode.onUserInteraction);
   }

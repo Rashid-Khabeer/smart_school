@@ -185,7 +185,7 @@ class _RowItem extends StatelessWidget {
                 Icon(CupertinoIcons.calendar),
                 SizedBox(width: 5.0),
                 Text(
-                  '${lang.returnDate}\n${data?.returnDate ?? 'Date'}',
+                  '${lang.returnDate}\n${data?.returnDate ?? ''}',
                   style: k14Style,
                 ),
                 Spacer(),

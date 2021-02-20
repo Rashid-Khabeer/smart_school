@@ -1,3 +1,4 @@
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'home-work_model.g.dart';
@@ -14,6 +15,7 @@ class HomeWork {
   List<HomeWorkDetail> homeWorks;
 
   HomeWork({this.sectionId, this.classId, this.homeWorks, this.subjectId});
+
   factory HomeWork.fromJson(Map<String, dynamic> json) =>
       _$HomeWorkFromJson(json);
 
@@ -81,8 +83,29 @@ class HomeWorkDetail {
     this.subjectGroupSubjectId,
     this.submitDate,
   });
+
   factory HomeWorkDetail.fromJson(Map<String, dynamic> json) =>
       _$HomeWorkDetailFromJson(json);
 
   Map<String, dynamic> toJson() => _$HomeWorkDetailToJson(this);
+}
+
+@JsonSerializable()
+class AddHomeWork {
+  @JsonKey(name: 'student_id')
+  String studentId;
+  @JsonKey(name: 'homework_id')
+  String homeWorkId;
+  String message;
+
+  AddHomeWork({
+    this.message,
+    this.studentId,
+    this.homeWorkId,
+  });
+
+  factory AddHomeWork.fromJson(Map<String, dynamic> json) =>
+      _$AddHomeWorkFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AddHomeWorkToJson(this);
 }

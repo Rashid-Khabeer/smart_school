@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart' as rt;
 import 'package:smart_school/src/data/models/attendance_model.dart';
@@ -55,6 +57,19 @@ abstract class RestService {
     @rt.Header('User-Id') String userId,
     @rt.Header('Authorization') String authKey,
     @rt.Body() StudentRequest request,
+  });
+
+  @rt.POST('/webservice/addaa')
+  @rt.MultiPart()
+  Future<dynamic> addHomeWork({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Part() File file,
+    // ignore: non_constant_identifier_names
+    @rt.Part() String student_id,
+    // ignore: non_constant_identifier_names
+    @rt.Part() String homework_id,
+    @rt.Part() String message,
   });
 
   @rt.POST('/webservice/fees')

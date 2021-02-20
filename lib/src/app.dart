@@ -14,7 +14,7 @@ class SchoolApp extends ValueListenableBuilder {
           valueListenable: LocaleData.locale,
           builder: (context, value, _) {
             return MaterialApp(
-              title: 'Smart School',
+              title: 'Lezan School',
               theme: ThemeData(
                 cupertinoOverrideTheme: CupertinoThemeData(
                   primaryColor: kMainColor,
