@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -15,6 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   int _index = 0;
   static List<Widget> _items = [
     HomeView(),
@@ -23,9 +27,34 @@ class _HomePageState extends State<HomePage> {
     ProfileView(),
   ];
 
+  _firebaseListener() {
+    _firebaseMessaging.configure(
+      onMessage: (Map<String, dynamic> message) async {
+        print('on message $message');
+      },
+      onResume: (Map<String, dynamic> message) async {
+        print('on resume $message');
+      },
+      onLaunch: (Map<String, dynamic> message) async {
+        print('on launch $message');
+      },
+    );
+  }
+
+  _iOSPermission() {
+    _firebaseMessaging.requestNotificationPermissions(
+        IosNotificationSettings(sound: true, badge: true, alert: true));
+    _firebaseMessaging.onIosSettingsRegistered
+        .listen((IosNotificationSettings settings) {
+      print("Settings registered: $settings");
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    if (Platform.isIOS) _iOSPermission();
+    _firebaseListener();
     print(AppData().readLastUser().userId);
     print(AppData().readLastUser().token);
     print(AppData().readLastUser().studentRecord.studentId);
