@@ -137,6 +137,8 @@ class _RowItem extends StatelessWidget {
 
   _getDataRow() {
     return list.map((e) {
+      print(e.subjectName);
+      print(e.code);
       return DataRow(
         cells: [
           DataCell(
@@ -149,7 +151,7 @@ class _RowItem extends StatelessWidget {
           ),
           DataCell(
             Text(
-              "${e.subjectName + e.code == '' ? "" : "(" + e.code + ")"}",
+              '${e.subjectName} ${e.code == '' ? '' : '(${e.code})'}',
               style: k14Style.copyWith(color: Colors.grey.shade600),
             ),
           ),
