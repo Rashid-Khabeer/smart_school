@@ -552,65 +552,65 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmLogout => 'هل تريد بالتأكيد تسجيل الخروج';
 
   @override
-  String get consolidate => 'Consolidate MarkSheet';
+  String get consolidate => 'دمج ورقة علامة';
 
   @override
-  String get obtainedMarks => 'Marks Obtained';
+  String get obtainedMarks => 'علامات تم الحصول عليها';
 
   @override
-  String get passingMarks => 'Passing Obtained';
+  String get passingMarks => 'تم الحصول على تمرير';
 
   @override
-  String get result => 'Result';
+  String get result => 'نتيجه';
 
   @override
-  String get note => 'Note';
+  String get note => 'ملاحظه';
 
   @override
-  String get percentage => 'Percentage';
+  String get percentage => 'النسبه المئويه';
 
   @override
-  String get division => 'Division';
+  String get division => 'شعبه';
 
   @override
-  String get books => 'Books';
+  String get books => 'الكتب';
 
   @override
-  String get booksIssued => 'Books Issued';
+  String get booksIssued => 'الكتب الصادرة';
 
   @override
-  String get author => 'Author';
+  String get author => 'المؤلف';
 
   @override
-  String get addedOn => 'Added On';
+  String get addedOn => 'إضافة على';
 
   @override
-  String get packNo => 'Pack No';
+  String get packNo => 'رقم العبوة';
 
   @override
-  String get quantity => 'Quantity';
+  String get quantity => 'عدد';
 
   @override
-  String get price => 'Price';
+  String get price => 'الاسعار';
 
   @override
-  String get publisher => 'Publisher';
+  String get publisher => 'الناشر';
 
   @override
-  String get issuedDate => 'Issued Date';
+  String get issuedDate => 'تاريخ الإصدار';
 
   @override
-  String get bookNo => 'Book No';
+  String get bookNo => 'رقم الکتاب';
 
   @override
-  String get dueReturnDate => 'Due Return Date';
+  String get dueReturnDate => 'تاريخ الإرجاع المستحق';
 
   @override
-  String get returnDate => 'Return Date';
+  String get returnDate => 'تاريخ الإرجاع ';
 
   @override
-  String get notReturned => 'Not Returned';
+  String get notReturned => 'غير إرجاع';
 
   @override
-  String get returned => 'Returned';
+  String get returned => 'ارجاع ';
 }

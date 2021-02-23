@@ -552,65 +552,65 @@ class AppLocalizationsUr extends AppLocalizations {
   String get confirmLogout => 'دڵنیایت لە چوونەدەرەوە';
 
   @override
-  String get consolidate => 'Consolidate MarkSheet';
+  String get consolidate => 'یەکخستنەکانی پەرەی نمرە';
 
   @override
-  String get obtainedMarks => 'Marks Obtained';
+  String get obtainedMarks => 'نمرەی بەدەستخراو';
 
   @override
-  String get passingMarks => 'Passing Obtained';
+  String get passingMarks => 'تێپەڕبوون بەدەستخرا';
 
   @override
-  String get result => 'Result';
+  String get result => 'ئەنجام';
 
   @override
-  String get note => 'Note';
+  String get note => 'تێبینی';
 
   @override
-  String get percentage => 'Percentage';
+  String get percentage => 'لە سەدا';
 
   @override
-  String get division => 'Division';
+  String get division => 'دابەشکاری';
 
   @override
-  String get books => 'Books';
+  String get books => 'کتابەکان';
 
   @override
-  String get booksIssued => 'Books Issued';
+  String get booksIssued => 'کتێب دەرچووە';
 
   @override
-  String get author => 'Author';
+  String get author => 'نوسەر';
 
   @override
-  String get addedOn => 'Added On';
+  String get addedOn => 'زیادکرا لەسەر';
 
   @override
-  String get packNo => 'Pack No';
+  String get packNo => 'ژمارەی گورزە';
 
   @override
-  String get quantity => 'Quantity';
+  String get quantity => 'عەدەد';
 
   @override
-  String get price => 'Price';
+  String get price => 'نرخ';
 
   @override
-  String get publisher => 'Publisher';
+  String get publisher => 'بڵاوکەرەوە';
 
   @override
-  String get issuedDate => 'Issued Date';
+  String get issuedDate => 'بەرواری دەرچوون';
 
   @override
-  String get bookNo => 'Book No';
+  String get bookNo => 'ژمارەی پەرتووک';
 
   @override
-  String get dueReturnDate => 'Due Return Date';
+  String get dueReturnDate => 'بەرواری گەرانەوە بەسەرچوو';
 
   @override
-  String get returnDate => 'Return Date';
+  String get returnDate => 'بەرواری گەرانەوە';
 
   @override
-  String get notReturned => 'Not Returned';
+  String get notReturned => 'نەگەراوەتەوە';
 
   @override
-  String get returned => 'Returned';
+  String get returned => 'گەراوەتەوە';
 }

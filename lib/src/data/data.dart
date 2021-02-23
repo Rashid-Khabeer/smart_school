@@ -16,6 +16,7 @@ class AppData with LocaleData, AuthMixin, SharedPreferencesMixin {
     Hive.registerAdapter(SignInResponseAdapter());
     Hive.registerAdapter(StudentRecordAdapter());
     Hive.registerAdapter(LanguageAdapter());
+    Hive.registerAdapter(ParentChildAdapter());
     await SharedPreferencesMixin.initialize();
     await AuthMixin.initialize();
     await LocaleData.initiate();

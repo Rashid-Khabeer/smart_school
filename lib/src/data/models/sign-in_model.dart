@@ -50,16 +50,17 @@ class SignInResponse extends HiveObject {
 @HiveType(typeId: 1)
 class StudentRecord extends HiveObject {
   @HiveField(0)
-  @JsonKey(name: "student_id")
+  @JsonKey(name: "student_id", defaultValue: '')
   final String studentId;
   @HiveField(1)
   final String role;
   @JsonKey(name: "username")
   @HiveField(2)
   final String userName;
-  @JsonKey(name: "class")
+  @JsonKey(name: "class", defaultValue: '')
   @HiveField(3)
   final String className;
+  @JsonKey(defaultValue: '')
   @HiveField(4)
   final String section;
   @JsonKey(name: "date_format")
@@ -83,6 +84,9 @@ class StudentRecord extends HiveObject {
   final String schoolName;
   @HiveField(12)
   final Language language;
+  @HiveField(13)
+  @JsonKey(name: "parent_childs", defaultValue: [])
+  final List<ParentChild> parentChild;
 
   StudentRecord({
     this.userName,
@@ -98,6 +102,7 @@ class StudentRecord extends HiveObject {
     this.timeZone,
     this.schoolName,
     this.language,
+    this.parentChild,
   });
 
   factory StudentRecord.fromJson(Map<String, dynamic> json) =>
@@ -121,6 +126,44 @@ class Language extends HiveObject {
       _$LanguageFromJson(json);
 
   Map<String, dynamic> toJson() => _$LanguageToJson(this);
+}
+
+@JsonSerializable()
+@HiveType(typeId: 3)
+class ParentChild {
+  @JsonKey(name: 'student_id')
+  @HiveField(0)
+  String studentId;
+  @JsonKey(name: 'class')
+  @HiveField(1)
+  String className;
+  @HiveField(2)
+  String section;
+  @JsonKey(name: 'class_id')
+  @HiveField(3)
+  String classId;
+  @JsonKey(name: 'section_id')
+  @HiveField(4)
+  String sectionId;
+  @HiveField(5)
+  String name;
+  @HiveField(6)
+  String image;
+
+  ParentChild({
+    this.studentId,
+    this.name,
+    this.section,
+    this.classId,
+    this.sectionId,
+    this.className,
+    this.image,
+  });
+
+  factory ParentChild.fromJson(Map<String, dynamic> json) =>
+      _$ParentChildFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ParentChildToJson(this);
 }
 
 @JsonSerializable()

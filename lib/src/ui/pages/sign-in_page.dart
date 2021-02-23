@@ -177,25 +177,40 @@ class _SignInPageState extends State<SignInPage> {
       if (_error == null) {
         Navigator.of(context).pop();
         await AppData().saveUser(_response);
-        ServerError _error;
-        StudentProfile _profile = await RestService()
-            .getProfile(
-          authKey: AppData().readLastUser().token,
-          userId: AppData().readLastUser().userId,
-          request: StudentRequest(
-              id: AppData().readLastUser().studentRecord.studentId),
-        )
-            .catchError((error) {
-          print(error);
-          _error = ServerError.withError(error);
-          print(_error.errorMessage);
-          Toast.show(_error.errorMessage, context);
-        });
-        AppData().setClassId(_profile.studentResult.classId);
-        AppData().setSectionId(_profile.studentResult.sectionId);
+        if (_response.studentRecord.role == 'student') {
+          ServerError _error;
+          StudentProfile _profile = await RestService()
+              .getProfile(
+            authKey: AppData().readLastUser().token,
+            userId: AppData().readLastUser().userId,
+            request: StudentRequest(
+                id: AppData().readLastUser().studentRecord.studentId),
+          )
+              .catchError((error) {
+            print(error);
+            _error = ServerError.withError(error);
+            print(_error.errorMessage);
+            Toast.show(_error.errorMessage, context);
+          });
+          await AppData().setClassId(_profile.studentResult.classId);
+          await AppData().setSectionId(_profile.studentResult.sectionId);
+        } else {
+          if (_response.studentRecord.parentChild.length == 1) {
+            await AppData().setSectionId(
+                _response.studentRecord.parentChild.first.sectionId);
+            print('Class Id');
+            print(_response.studentRecord.parentChild.first.classId);
+            await AppData()
+                .setClassId(_response.studentRecord.parentChild.first.classId);
+            print('After');
+          } else {
+            print('More');
+          }
+        }
+        // return;
         Navigator.of(context).pop();
         AppNavigation.toPage(context, AppPage.home);
-      } else
+      } else {
         Navigator.of(context).pop();
         Toast.show(
           _error.errorMessage,
@@ -204,6 +219,7 @@ class _SignInPageState extends State<SignInPage> {
           textColor: Colors.black,
           duration: 3,
         );
+      }
     } else
       setState(() => _mode = AutovalidateMode.onUserInteraction);
   }
