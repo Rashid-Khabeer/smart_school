@@ -86,7 +86,7 @@ class _AddHomeWorkPageState extends State<AddHomeWorkPage> {
         userId: AppData().readLastUser().userId,
         file: _image,
         message: _message,
-        student_id: AppData().readLastUser().studentRecord.studentId,
+        student_id: AppData().getUserId(),
         homework_id: widget.workId,
       )
           .catchError((e) {

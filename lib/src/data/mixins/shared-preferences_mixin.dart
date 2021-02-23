@@ -32,7 +32,7 @@ mixin SharedPreferencesMixin {
       await _preferences.setString(_classId, classId);
 
   getParentChildIndex() =>
-      containsParentChildIndex() ? _preferences.getInt(_parentIndex) : 1;
+      containsParentChildIndex() ? _preferences.getInt(_parentIndex) : 0;
 
   getClassId() => containsClassId() ? _preferences.getString(_classId) : '';
 

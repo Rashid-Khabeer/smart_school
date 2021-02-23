@@ -50,8 +50,8 @@ class _TeachersPageState extends State<TeachersPage> {
         _data.add(TeachersData.fromJson(_teachers.resultList[key]));
       });
     }
-    setState(() {});
     _isLoading = false;
+    setState(() {});
   }
 
   Future<void> _fetchData() async => await _getData();
@@ -77,10 +77,12 @@ class _TeachersPageState extends State<TeachersPage> {
                     ? NoDataWidget()
                     : ListView.builder(
                         itemCount: _data?.length ?? 0,
-                        itemBuilder: (context, index) => _RowItem(
-                          data: _data[index],
-                          lang: lang,
-                        ),
+                        itemBuilder: (context, index) {
+                          return _RowItem(
+                            data: _data[index],
+                            lang: lang,
+                          );
+                        },
                       ),
               ),
       ),
@@ -98,7 +100,7 @@ class _RowItem extends StatelessWidget {
   Widget build(BuildContext context) {
     bool _isStudent = AppData().readLastUser().studentRecord.role == 'student';
     bool _isClassTeacher = int.parse(data.classTeacherId) > 0;
-    Widget _ratingChild;
+    Widget _ratingChild = Container();
     if (_isStudent) {
       if (data.rate == '0') {
         _ratingChild = TextButton(
@@ -137,7 +139,7 @@ class _RowItem extends StatelessWidget {
                 SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    '${data.staffName} ${data.staffSurName} (${data.employeeId})',
+                    '${data.staffName} ${data?.staffSurName ?? ''} (${data?.employeeId ?? ''})',
                     style: k16BoldStyle,
                   ),
                 ),

@@ -30,7 +30,7 @@ class _HostelBottomSheetState extends State<HostelBottomSheet> {
       userId: AppData().readLastUser().userId,
       request: HostelDetailRequest(
         hostelId: widget.id,
-        studentId: AppData().readLastUser().studentRecord.studentId,
+        studentId: AppData().getUserId(),
       ),
     )
         .catchError((error) {

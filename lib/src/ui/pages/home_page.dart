@@ -55,14 +55,9 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     if (Platform.isIOS) _iOSPermission();
     _firebaseListener();
-    print('User Id:');
     print(AppData().readLastUser().userId);
-    print('Token:');
     print(AppData().readLastUser().token);
-    print(AppData().readLastUser().studentRecord.studentId);
-    print('Class Id:');
     print(AppData().getClassId());
-    print('Section Id:');
     print(AppData().getSectionId());
   }
 

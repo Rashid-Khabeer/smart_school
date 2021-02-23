@@ -30,13 +30,12 @@ class _ProfileViewState extends State<ProfileView>
 
   _getData() async {
     ServerError _error;
-    print(AppData().readLastUser().studentRecord.studentId);
     _profile = await RestService()
         .getProfile(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request:
-          StudentRequest(id: AppData().readLastUser().studentRecord.studentId),
+          StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);

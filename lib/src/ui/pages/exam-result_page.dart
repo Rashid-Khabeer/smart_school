@@ -28,7 +28,7 @@ class _ExamResultPageState extends State<ExamResultPage> {
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request: ExamResultRequest(
-        id: AppData().readLastUser().studentRecord.studentId,
+        id: AppData().getUserId(),
         examId: widget.id,
       ),
     )

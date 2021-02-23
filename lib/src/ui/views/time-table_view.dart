@@ -21,13 +21,12 @@ class _TimeTableViewState extends State<TimeTableView> {
 
   _getData() async {
     ServerError _error;
-    print(AppData().readLastUser().studentRecord.studentId);
     _timeTable = await RestService()
         .getTimeTable(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request:
-          StudentRequest(id: AppData().readLastUser().studentRecord.studentId),
+          StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);

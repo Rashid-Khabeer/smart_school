@@ -30,7 +30,7 @@ class _LibraryPageState extends State<LibraryPage> {
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request: LibraryRequest(
-        studentId: AppData().readLastUser().studentRecord.studentId,
+        studentId: AppData().getUserId(),
       ),
     )
         .catchError((error) {

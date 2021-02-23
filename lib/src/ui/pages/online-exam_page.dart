@@ -27,7 +27,7 @@ class _OnlineExamPageState extends State<OnlineExamPage> {
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request:
-          StudentRequest(id: AppData().readLastUser().studentRecord.studentId),
+          StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);

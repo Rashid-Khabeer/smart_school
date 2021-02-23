@@ -26,7 +26,7 @@ class _AttendancePageState extends State<AttendancePage> {
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request: AttendanceRequest(
-        studentId: AppData().readLastUser().studentRecord.studentId,
+        studentId: AppData().getUserId(),
         month: date.month.toString(),
         year: date.year.toString(),
       ),

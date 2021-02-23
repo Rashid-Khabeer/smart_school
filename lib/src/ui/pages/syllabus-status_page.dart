@@ -23,13 +23,12 @@ class _SyllabusStatusPageState extends State<SyllabusStatusPage> {
 
   _getData() async {
     ServerError _error;
-    print(AppData().readLastUser().studentRecord.studentId);
     _syllabus = await RestService()
         .getSyllabus(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request:
-          StudentRequest(id: AppData().readLastUser().studentRecord.studentId),
+          StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);

@@ -31,4 +31,12 @@ class AppData with LocaleData, AuthMixin, SharedPreferencesMixin {
       throw 'AppData has not been initialized';
     }
   }
+
+  String getUserId() => this.readLastUser().studentRecord.role == 'student'
+      ? this.readLastUser().studentRecord.studentId
+      : this
+          .readLastUser()
+          .studentRecord
+          .parentChild[this.getParentChildIndex()]
+          .studentId;
 }

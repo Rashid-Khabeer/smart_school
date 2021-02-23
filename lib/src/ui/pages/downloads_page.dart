@@ -85,7 +85,6 @@ class _PageBodyState extends State<PageBody> {
 
   _getData() async {
     ServerError _error;
-    print(AppData().readLastUser().studentRecord.studentId);
     _downloads = await RestService()
         .getDownloads(
       authKey: AppData().readLastUser().token,

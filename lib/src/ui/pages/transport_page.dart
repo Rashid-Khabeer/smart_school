@@ -27,7 +27,7 @@ class _TransportPAgeState extends State<TransportPage> {
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request: StudentRequest(
-        id: AppData().readLastUser().studentRecord.studentId,
+        id: AppData().getUserId(),
       ),
     )
         .catchError((error) {

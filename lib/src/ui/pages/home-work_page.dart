@@ -25,13 +25,12 @@ class _HomeWorkPageState extends State<HomeWorkPage> {
 
   _getData() async {
     ServerError _error;
-    print(AppData().readLastUser().studentRecord.studentId);
     _homeWork = await RestService()
         .getHomeWork(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request:
-          StudentRequest(id: AppData().readLastUser().studentRecord.studentId),
+          StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);

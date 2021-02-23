@@ -30,7 +30,7 @@ class _LessonPlanPageState extends State<LessonPlanPage> {
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request: LessonPlanRequest(
-        studentId: AppData().readLastUser().studentRecord.studentId,
+        studentId: AppData().getUserId(),
         dateFrom: DateFormat('yyyy-MM-dd').format(_firstDate).toString(),
         datTo: DateFormat('yyyy-MM-dd').format(_lastDate).toString(),
       ),

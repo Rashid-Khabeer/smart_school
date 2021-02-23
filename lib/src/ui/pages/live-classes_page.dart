@@ -23,13 +23,12 @@ class _LiveClassPageState extends State<LiveClassPage> {
 
   _getData() async {
     ServerError _error;
-    print(AppData().readLastUser().studentRecord.studentId);
     _liveClass = await RestService()
         .getLiveClass(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request:
-          StudentRequest(id: AppData().readLastUser().studentRecord.studentId),
+          StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);
@@ -171,13 +170,12 @@ class _RowItem extends StatelessWidget {
     else
       Toast.show('Could not launch $url', _context);
     ServerError _error;
-    print(AppData().readLastUser().studentRecord.studentId);
     LiveClassHistory _history = await RestService()
         .getLiveClassHistory(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
       request: LiveClassRequest(
-        id: AppData().readLastUser().studentRecord.studentId,
+        id: AppData().getUserId(),
         conferenceId: meetingId,
       ),
     )
