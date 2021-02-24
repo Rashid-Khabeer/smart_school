@@ -103,7 +103,11 @@ class _LessonPlanDetailState extends State<LessonPlanDetailPage> {
                             Spacer(),
                             if (_details.data.lectureVideo.isNotEmpty)
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () async {
+                                  await DownloadService.download(
+                                      '/uploads/syllabus_attachment/' +
+                                          _details.data.lectureVideo);
+                                },
                                 icon: Icon(FontAwesome.file_video_o),
                               ),
                             if (_details.data.attachment.isNotEmpty)
