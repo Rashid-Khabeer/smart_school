@@ -4,7 +4,6 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:smart_school/src/data/data.dart';
 import 'package:smart_school/src/ui/views/home_view.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
@@ -25,7 +24,6 @@ class _HomePageState extends State<HomePage> {
   static List<Widget> _items = [
     HomeView(),
     TimeTableView(),
-    Text(''),
     ProfileView(),
   ];
 
@@ -126,12 +124,12 @@ class _HomePageState extends State<HomePage> {
               activeColor: Colors.blue,
               inactiveColor: kMainColor,
             ),
-            BottomNavyBarItem(
-              icon: Icon(FontAwesome5.sticky_note),
-              title: Text(lang.notice),
-              activeColor: Colors.blue,
-              inactiveColor: kMainColor,
-            ),
+            // BottomNavyBarItem(
+            //   icon: Icon(FontAwesome.whatsapp),
+            //   title: Text(lang.chat),
+            //   activeColor: Colors.blue,
+            //   inactiveColor: kMainColor,
+            // ),
             BottomNavyBarItem(
               icon: Icon(CupertinoIcons.person),
               title: Text(lang.profile),
