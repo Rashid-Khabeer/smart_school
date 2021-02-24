@@ -8,6 +8,7 @@ import 'package:smart_school/src/services/rest/rest_service.dart';
 import 'package:smart_school/src/services/server_error.dart';
 import 'package:smart_school/src/ui/modals/language_dialog.dart';
 import 'package:smart_school/src/ui/modals/loading_dialog.dart';
+import 'package:smart_school/src/ui/modals/parent-childs_dialog.dart';
 import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/widgets/button_widget.dart';
 import 'package:smart_school/src/ui/widgets/text-field_widget.dart';
@@ -27,6 +28,7 @@ class _SignInPageState extends State<SignInPage> {
   SignInRequest _request = SignInRequest();
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode _mode = AutovalidateMode.disabled;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -49,6 +51,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
           child: Scaffold(
+            key: _scaffoldKey,
             backgroundColor: Colors.transparent,
             body: Padding(
               padding: const EdgeInsets.symmetric(
@@ -176,8 +179,8 @@ class _SignInPageState extends State<SignInPage> {
       });
       if (_error == null) {
         Navigator.of(context).pop();
-        await AppData().saveUser(_response);
         if (_response.studentRecord.role == 'student') {
+          await AppData().saveUser(_response);
           ServerError _error;
           StudentProfile _profile = await RestService()
               .getProfile(
@@ -194,22 +197,39 @@ class _SignInPageState extends State<SignInPage> {
           });
           await AppData().setClassId(_profile.studentResult.classId);
           await AppData().setSectionId(_profile.studentResult.sectionId);
+          Navigator.of(context).pop();
+          AppNavigation.toPage(context, AppPage.home);
         } else {
           if (_response.studentRecord.parentChild.length == 1) {
+            await AppData().saveUser(_response);
             await AppData().setSectionId(
                 _response.studentRecord.parentChild.first.sectionId);
-            print('Class Id');
-            print(_response.studentRecord.parentChild.first.classId);
             await AppData()
                 .setClassId(_response.studentRecord.parentChild.first.classId);
-            print('After');
+            Navigator.of(context).pop();
+            AppNavigation.toPage(context, AppPage.home);
           } else {
-            print('More');
+            if (!currentFocus.hasPrimaryFocus) currentFocus.unfocus();
+              _scaffoldKey.currentState.showBottomSheet(
+              (context) => ParentChildBottomSheet(
+                onSubmitted: (value, index) async {
+                  if (value) {
+                    AppData().setParentChildIndex(index);
+                    await AppData().saveUser(_response);
+                    await AppData().setSectionId(
+                        _response.studentRecord.parentChild[index].sectionId);
+                    await AppData().setClassId(
+                        _response.studentRecord.parentChild[index].classId);
+                    Navigator.of(context).pop();
+                    AppNavigation.toPage(context, AppPage.home);
+                  }
+                },
+                list: _response.studentRecord.parentChild,
+              ),
+            );
           }
         }
         // return;
-        Navigator.of(context).pop();
-        AppNavigation.toPage(context, AppPage.home);
       } else {
         Navigator.of(context).pop();
         Toast.show(

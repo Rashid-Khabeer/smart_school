@@ -15,6 +15,7 @@ import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/views/profile_view.dart';
 import 'package:smart_school/src/ui/views/time-table_view.dart';
 import 'package:smart_school/src/ui/widgets/list-view_widgets.dart';
+import 'package:smart_school/src/utility/constants.dart';
 import 'package:smart_school/src/utility/nav.dart';
 import 'package:toast/toast.dart';
 
@@ -282,8 +283,8 @@ class _CardWidget extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: new LinearGradient(
             colors: [
-              firstColor ?? Colors.lightBlue,
-              secondColor ?? Colors.lightGreen,
+              firstColor ?? kMainColor,
+              secondColor ?? Colors.grey,
             ],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,

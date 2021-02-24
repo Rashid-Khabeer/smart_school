@@ -115,14 +115,14 @@ class _HomePageState extends State<HomePage> {
             BottomNavyBarItem(
               icon: Icon(Icons.apps),
               title: Text(lang.menu),
-              activeColor: Colors.blue,
-              inactiveColor: kMainColor,
+              activeColor: kMainColor,
+              inactiveColor: Colors.grey,
             ),
             BottomNavyBarItem(
               icon: Icon(CupertinoIcons.table),
               title: Text(lang.classTable),
-              activeColor: Colors.blue,
-              inactiveColor: kMainColor,
+              activeColor: kMainColor,
+              inactiveColor: Colors.grey,
             ),
             // BottomNavyBarItem(
             //   icon: Icon(FontAwesome.whatsapp),
@@ -133,8 +133,8 @@ class _HomePageState extends State<HomePage> {
             BottomNavyBarItem(
               icon: Icon(CupertinoIcons.person),
               title: Text(lang.profile),
-              activeColor: Colors.blue,
-              inactiveColor: kMainColor,
+              activeColor: kMainColor,
+              inactiveColor: Colors.grey,
             ),
           ],
         ),
