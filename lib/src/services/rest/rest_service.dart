@@ -12,6 +12,7 @@ import 'package:smart_school/src/data/models/hostel_model.dart';
 import 'package:smart_school/src/data/models/lesson-plan_model.dart';
 import 'package:smart_school/src/data/models/library_model.dart';
 import 'package:smart_school/src/data/models/live-class_model.dart';
+import 'package:smart_school/src/data/models/modules_model.dart';
 import 'package:smart_school/src/data/models/notice-board_model.dart';
 import 'package:smart_school/src/data/models/notification_model.dart';
 import 'package:smart_school/src/data/models/online-exam_model.dart';
@@ -43,6 +44,13 @@ abstract class RestService {
     @rt.Header('User-Id') String userId,
     @rt.Header('Authorization') String authKey,
     @rt.Body() SignOutRequest request,
+  });
+
+  @rt.POST('/webservice/getModuleStatus')
+  Future<Modules> getModule({
+    @rt.Header('User-Id') String userId,
+    @rt.Header('Authorization') String authKey,
+    @rt.Body() ModuleRequest request,
   });
 
   @rt.POST('/webservice/getStudentProfile')

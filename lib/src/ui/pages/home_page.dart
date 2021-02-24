@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/views/profile_view.dart';
 import 'package:smart_school/src/ui/views/time-table_view.dart';
 import 'package:smart_school/src/utility/assets.dart';
+import 'package:smart_school/src/utility/constants.dart';
 import 'package:smart_school/src/utility/nav.dart';
 
 class HomePage extends StatefulWidget {
@@ -89,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    '${lang.className(AppData().readLastUser().studentRecord.className)}',
+                    '${lang.className(AppData().readLastUser().studentRecord.className + '(${AppData().readLastUser().studentRecord.section})')}',
                     style: TextStyle(color: Colors.white),
                   ),
                 ],
@@ -107,32 +109,36 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         body: _items[_index],
-        bottomNavigationBar: BottomAppBar(
-          notchMargin: 10,
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          shape: CircularNotchedRectangle(),
-          child: CupertinoTabBar(
-            currentIndex: _index,
-            onTap: (index) => setState(() => _index = index),
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.list_bullet),
-                label: lang.menu,
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.table),
-                label: lang.classTable,
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(FontAwesome.whatsapp),
-                label: lang.chat,
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.person),
-                label: lang.profile,
-              ),
-            ],
-          ),
+        bottomNavigationBar: BottomNavyBar(
+          showElevation: true,
+          selectedIndex: _index,
+          onItemSelected: (index) => setState(() => _index = index),
+          items: [
+            BottomNavyBarItem(
+              icon: Icon(Icons.apps),
+              title: Text(lang.menu),
+              activeColor: Colors.blue,
+              inactiveColor: kMainColor,
+            ),
+            BottomNavyBarItem(
+              icon: Icon(CupertinoIcons.table),
+              title: Text(lang.classTable),
+              activeColor: Colors.blue,
+              inactiveColor: kMainColor,
+            ),
+            BottomNavyBarItem(
+              icon: Icon(FontAwesome5.sticky_note),
+              title: Text(lang.notice),
+              activeColor: Colors.blue,
+              inactiveColor: kMainColor,
+            ),
+            BottomNavyBarItem(
+              icon: Icon(CupertinoIcons.person),
+              title: Text(lang.profile),
+              activeColor: Colors.blue,
+              inactiveColor: kMainColor,
+            ),
+          ],
         ),
       ),
     );
