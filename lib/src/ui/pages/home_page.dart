@@ -10,7 +10,6 @@ import 'package:smart_school/src/ui/views/localized_view.dart';
 import 'package:smart_school/src/ui/views/profile_view.dart';
 import 'package:smart_school/src/ui/views/time-table_view.dart';
 import 'package:smart_school/src/utility/assets.dart';
-import 'package:smart_school/src/utility/constants.dart';
 import 'package:smart_school/src/utility/nav.dart';
 
 class HomePage extends StatefulWidget {
@@ -63,6 +62,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _className = AppData().readLastUser().studentRecord.role == 'student'
+        ? '${AppData().readLastUser().studentRecord.className + '(${AppData().readLastUser().studentRecord.section})'}'
+        : '${AppData().readLastUser().studentRecord.parentChild[AppData().getParentChildIndex()].className} (${AppData().readLastUser().studentRecord.parentChild[AppData().getParentChildIndex()].section})';
     return LocalizedView(
       builder: (context, lang) => Scaffold(
         appBar: AppBar(
@@ -76,7 +78,10 @@ class _HomePageState extends State<HomePage> {
           ),
           bottom: PreferredSize(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+                vertical: 5.0,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    '${lang.className(AppData().readLastUser().studentRecord.className + '(${AppData().readLastUser().studentRecord.section})')}',
+                    '${lang.className(_className)}',
                     style: TextStyle(color: Colors.white),
                   ),
                 ],
@@ -115,13 +120,13 @@ class _HomePageState extends State<HomePage> {
             BottomNavyBarItem(
               icon: Icon(Icons.apps),
               title: Text(lang.menu),
-              activeColor: kMainColor,
+              activeColor: Color(0xff2e003e),
               inactiveColor: Colors.grey,
             ),
             BottomNavyBarItem(
               icon: Icon(CupertinoIcons.table),
               title: Text(lang.classTable),
-              activeColor: kMainColor,
+              activeColor: Color(0xff009688),
               inactiveColor: Colors.grey,
             ),
             // BottomNavyBarItem(
@@ -133,7 +138,7 @@ class _HomePageState extends State<HomePage> {
             BottomNavyBarItem(
               icon: Icon(CupertinoIcons.person),
               title: Text(lang.profile),
-              activeColor: kMainColor,
+              activeColor: Colors.lightGreen.shade700,
               inactiveColor: Colors.grey,
             ),
           ],

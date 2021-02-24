@@ -89,6 +89,7 @@ class _HomeViewState extends State<HomeView> {
                               title: lang.profile,
                             ),
                           ),
+                          firstColor: Colors.grey.shade700,
                         ),
                         if (_getStatus('fees'))
                           _CardWidget(
@@ -96,14 +97,18 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.fee,
                             onTap: () =>
                                 AppNavigation.toPage(context, AppPage.fee),
+                            firstColor: Colors.pinkAccent.shade700,
+                            secondColor: Colors.pinkAccent.shade100,
                           ),
                         if (_getStatus('live_classes'))
-                          _CardWidget(
-                            icon: CupertinoIcons.video_camera,
-                            title: lang.live,
-                            onTap: () => AppNavigation.toPage(
-                                context, AppPage.liveClass),
-                          ),
+                        _CardWidget(
+                          icon: CupertinoIcons.video_camera,
+                          title: lang.live,
+                          onTap: () =>
+                              AppNavigation.toPage(context, AppPage.liveClass),
+                          firstColor: Colors.lightBlue.shade700,
+                          secondColor: Colors.lightBlue.shade100,
+                        ),
                         if (_getStatus('class_timetable'))
                           _CardWidget(
                             icon: CupertinoIcons.table,
@@ -115,6 +120,8 @@ class _HomeViewState extends State<HomeView> {
                                 title: lang.classTable,
                               ),
                             ),
+                            firstColor: Colors.lightGreen.shade700,
+                            secondColor: Colors.lightGreen.shade100,
                           ),
                         if (_getStatus('lesson_plan'))
                           _CardWidget(
@@ -122,6 +129,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.lessonPlan,
                             onTap: () => AppNavigation.toPage(
                                 context, AppPage.lessonPlan),
+                            firstColor: Colors.orange.shade600,
+                            secondColor: Colors.orange.shade100,
                           ),
                         if (_getStatus('syllabus_status'))
                           _CardWidget(
@@ -129,6 +138,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.syllabus,
                             onTap: () => AppNavigation.toPage(
                                 context, AppPage.syllabusStatus),
+                            firstColor: Colors.redAccent.shade400,
+                            secondColor: Colors.redAccent.shade100,
                           ),
                         if (_getStatus('homework'))
                           _CardWidget(
@@ -136,6 +147,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.homework,
                             onTap: () =>
                                 AppNavigation.toPage(context, AppPage.homeWork),
+                            firstColor: Colors.black54,
+                            secondColor: Colors.grey,
                           ),
                         if (_getStatus('online_examination'))
                           _CardWidget(
@@ -143,6 +156,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.exam,
                             onTap: () => AppNavigation.toPage(
                                 context, AppPage.onlineExam),
+                            firstColor: Colors.amber.shade400,
+                            secondColor: Colors.amber.shade100,
                           ),
                         if (_getStatus('download_center'))
                           _CardWidget(
@@ -150,6 +165,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.downloads,
                             onTap: () => AppNavigation.toPage(
                                 context, AppPage.downloads),
+                            firstColor: Colors.lightBlueAccent.shade700,
+                            secondColor: Colors.lightBlueAccent.shade100,
                           ),
                         if (_getStatus('attendance'))
                           _CardWidget(
@@ -157,6 +174,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.attendance,
                             onTap: () => AppNavigation.toPage(
                                 context, AppPage.attendance),
+                            firstColor: Color(0xff2ab7ca),
+                            secondColor: Colors.lightBlueAccent.shade100,
                           ),
                         if (_getStatus('examinations'))
                           _CardWidget(
@@ -164,6 +183,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.examination,
                             onTap: () => AppNavigation.toPage(
                                 context, AppPage.examination),
+                            firstColor: Color(0xff009688),
+                            secondColor: Color(0xff83d0c9),
                           ),
                         if (_getStatus('notice_board'))
                           _CardWidget(
@@ -171,6 +192,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.notice,
                             onTap: () =>
                                 AppNavigation.toPage(context, AppPage.notice),
+                            firstColor: Color(0xffc99789),
+                            secondColor: Color(0xfffce9db),
                           ),
                         if (_getStatus('teachers_rating'))
                           _CardWidget(
@@ -178,6 +201,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.reviews,
                             onTap: () =>
                                 AppNavigation.toPage(context, AppPage.teachers),
+                            firstColor: Color(0xff3b5998),
+                            secondColor: Color(0xffdfe3ee),
                           ),
                         if (_getStatus('library'))
                           _CardWidget(
@@ -185,6 +210,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.library,
                             onTap: () =>
                                 AppNavigation.toPage(context, AppPage.library),
+                            firstColor: Colors.lightGreenAccent.shade700,
+                            secondColor: Colors.lightGreenAccent.shade100,
                           ),
                         if (_getStatus('transport_routes'))
                           _CardWidget(
@@ -192,6 +219,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.transport,
                             onTap: () => AppNavigation.toPage(
                                 context, AppPage.transport),
+                            firstColor: Color(0xffff8b94),
+                            secondColor: Color(0xffffd3b6),
                           ),
                         if (_getStatus('hostel_rooms'))
                           _CardWidget(
@@ -199,6 +228,8 @@ class _HomeViewState extends State<HomeView> {
                             title: lang.hostel,
                             onTap: () =>
                                 AppNavigation.toPage(context, AppPage.hostels),
+                            firstColor: Color(0xff2e003e),
+                            secondColor: Color(0xff8874a3),
                           ),
                         // _CardWidget(
                         //   icon: CupertinoIcons.chat_bubble_2,
@@ -209,12 +240,15 @@ class _HomeViewState extends State<HomeView> {
                           title: lang.task,
                           onTap: () =>
                               AppNavigation.toPage(context, AppPage.tasks),
+                          firstColor: Color(0xff009688),
+                          secondColor: Color(0xffe6e6ea),
                         ),
                         _CardWidget(
                           icon: CupertinoIcons.globe,
                           title: lang.change,
                           onTap: () => openLanguageDialog(context: context),
-                          // onTap: _signOut,
+                          firstColor: Color(0xff6497b1),
+                          secondColor: Colors.lightBlueAccent.shade100,
                         ),
                         _CardWidget(
                           icon: CupertinoIcons.square_arrow_left,
@@ -226,6 +260,8 @@ class _HomeViewState extends State<HomeView> {
                               context: context,
                             ))) _signOut();
                           },
+                          firstColor: Colors.red.shade600,
+                          secondColor: Colors.red.shade100,
                         ),
                       ],
                     ),
