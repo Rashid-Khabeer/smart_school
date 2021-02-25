@@ -135,6 +135,7 @@ class _RowItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(data.file);
     return Card(
       child: Column(
         children: [
@@ -164,7 +165,7 @@ class _RowItem extends StatelessWidget {
                 IconButton(
                   icon: Icon(FontAwesome.download),
                   onPressed: () async =>
-                      DownloadService.download('uploads/' + data.file),
+                      DownloadService.download('/${data.file}'),
                 ),
               ],
             ),
