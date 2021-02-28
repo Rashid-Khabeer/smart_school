@@ -77,27 +77,27 @@ class _FeesPageState extends State<FeesPage> {
                         children: [
                           Expanded(
                             child: Text(
-                                "${lang.amount}\n\$${_fee.grandFee?.amount ?? ''}",
+                                "${lang.amount}\n${_fee.grandFee?.amount ?? ''}",
                                 style: k14Style),
                           ),
                           Expanded(
                             child: Text(
-                                "${lang.discount}\n\$${_fee.grandFee?.amountDiscount ?? ''}",
+                                "${lang.discount}\n${_fee.grandFee?.amountDiscount ?? ''}",
                                 style: k14Style),
                           ),
                           Expanded(
                             child: Text(
-                                "${lang.fine}\n\$${_fee.grandFee?.amountFine ?? ''}",
+                                "${lang.fine}\n${_fee.grandFee?.amountFine ?? ''}",
                                 style: k14Style),
                           ),
                           Expanded(
                             child: Text(
-                                "${lang.paid}\n\$${_fee.grandFee?.amountPaid ?? ''}",
+                                "${lang.paid}\n${_fee.grandFee?.amountPaid ?? ''}",
                                 style: k14Style),
                           ),
                           Expanded(
                             child: Text(
-                                "${lang.balance}\n\$${_fee.grandFee?.amountRemaining ?? ''}",
+                                "${lang.balance}\n${_fee.grandFee?.amountRemaining ?? ''}",
                                 style: k14Style),
                           ),
                         ],
@@ -200,17 +200,17 @@ class _RowItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 2.0),
                     child: Text(
-                      "${lang.amount}\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\$${feeDetail.amount}",
+                      "${lang.amount}\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t${feeDetail.amount}",
                       style: k14Style,
                     ),
                   ),
                   Text(
-                    "${lang.paidAmount}\t\t\t\t\t\t\t\t\t\t\t\t\t\t\$${feeDetail.totalAmountPaid}",
+                    "${lang.paidAmount}\t\t\t\t\t\t\t\t\t\t\t\t\t\t${feeDetail.totalAmountPaid}",
                     style: k14Style,
                   ),
                   SizedBox(height: 2.0),
                   Text(
-                    "${lang.balanceAmount}\t\t\t\t\t\t\t\t\$${feeDetail.totalAmountRemaining}",
+                    "${lang.balanceAmount}\t\t\t\t\t\t\t\t${feeDetail.totalAmountRemaining}",
                     style: k14Style,
                   ),
                 ],

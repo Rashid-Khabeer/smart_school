@@ -91,24 +91,15 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           firstColor: Colors.grey.shade700,
                         ),
-                        if (_getStatus('fees'))
-                          _CardWidget(
-                            icon: FontAwesome5.money_bill_alt,
-                            title: lang.fee,
-                            onTap: () =>
-                                AppNavigation.toPage(context, AppPage.fee),
-                            firstColor: Colors.pinkAccent.shade700,
-                            secondColor: Colors.pinkAccent.shade100,
-                          ),
                         if (_getStatus('live_classes'))
-                        _CardWidget(
-                          icon: CupertinoIcons.video_camera,
-                          title: lang.live,
-                          onTap: () =>
-                              AppNavigation.toPage(context, AppPage.liveClass),
-                          firstColor: Colors.lightBlue.shade700,
-                          secondColor: Colors.lightBlue.shade100,
-                        ),
+                          _CardWidget(
+                            icon: CupertinoIcons.video_camera,
+                            title: lang.live,
+                            onTap: () => AppNavigation.toPage(
+                                context, AppPage.liveClass),
+                            firstColor: Colors.lightBlue.shade700,
+                            secondColor: Colors.lightBlue.shade100,
+                          ),
                         if (_getStatus('class_timetable'))
                           _CardWidget(
                             icon: CupertinoIcons.table,
@@ -243,6 +234,15 @@ class _HomeViewState extends State<HomeView> {
                           firstColor: Color(0xff009688),
                           secondColor: Color(0xffe6e6ea),
                         ),
+                        if (_getStatus('fees'))
+                          _CardWidget(
+                            icon: FontAwesome5.money_bill_alt,
+                            title: lang.fee,
+                            onTap: () =>
+                                AppNavigation.toPage(context, AppPage.fee),
+                            firstColor: Colors.pinkAccent.shade700,
+                            secondColor: Colors.pinkAccent.shade100,
+                          ),
                         _CardWidget(
                           icon: CupertinoIcons.globe,
                           title: lang.change,
@@ -348,9 +348,15 @@ class _CardWidget extends StatelessWidget {
             ),
             child: Icon(icon, color: Colors.white),
           ),
-          title: Text(
-            title,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          title: Center(
+            child: Text(
+              title,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+              ),
+            ),
           ),
           trailing: Icon(
             Icons.keyboard_arrow_right,

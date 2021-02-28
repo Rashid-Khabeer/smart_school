@@ -62,7 +62,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get profile => 'پرۆفایل';
 
   @override
-  String get fee => 'پارەی خوێن';
+  String get fee => 'پارەی خوێندن';
 
   @override
   String get live => 'وانەی راستەوخۆ';
@@ -228,7 +228,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get dueDate => 'بەرواری قیست';
 
   @override
-  String get paidAmount => 'کۆی گشتی ماوە';
+  String get paidAmount => 'بڕی پارەدراو';
 
   @override
   String get balanceAmount => 'کۆی بەڵانس';
