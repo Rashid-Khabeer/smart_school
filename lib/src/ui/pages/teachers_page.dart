@@ -46,6 +46,7 @@ class _TeachersPageState extends State<TeachersPage> {
       _isLoading = true;
     });
     if (_error == null) {
+      _data.clear();
       _teachers.resultList.keys.forEach((key) {
         _data.add(TeachersData.fromJson(_teachers.resultList[key]));
       });
@@ -166,22 +167,6 @@ class _RowItem extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (data.contactNo?.isNotEmpty ?? false)
-                      GestureDetector(
-                        onTap: () async {
-                          if (await canLaunch(data.contactNo))
-                            await launch(data.contactNo);
-                          else
-                            Toast.show('Could not launch', context);
-                        },
-                        child: Row(
-                          children: [
-                            Icon(CupertinoIcons.phone),
-                            SizedBox(width: 5),
-                            Text(data.contactNo, style: k14Style),
-                          ],
-                        ),
-                      ),
                     if (data.email?.isNotEmpty ?? false)
                       Row(
                         children: [

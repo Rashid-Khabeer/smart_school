@@ -27,26 +27,26 @@ class _HomePageState extends State<HomePage> {
   ];
 
   _firebaseListener() {
-    _firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        print('on message $message');
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print('on resume $message');
-      },
-      onLaunch: (Map<String, dynamic> message) async {
-        print('on launch $message');
-      },
-    );
+    // _firebaseMessaging.configure(
+    //   onMessage: (Map<String, dynamic> message) async {
+    //     print('on message $message');
+    //   },
+    //   onResume: (Map<String, dynamic> message) async {
+    //     print('on resume $message');
+    //   },
+    //   onLaunch: (Map<String, dynamic> message) async {
+    //     print('on launch $message');
+    //   },
+    // );
   }
 
   _iOSPermission() {
-    _firebaseMessaging.requestNotificationPermissions(
-        IosNotificationSettings(sound: true, badge: true, alert: true));
-    _firebaseMessaging.onIosSettingsRegistered
-        .listen((IosNotificationSettings settings) {
-      print("Settings registered: $settings");
-    });
+    // _firebaseMessaging.requestNotificationPermissions(
+    //     IosNotificationSettings(sound: true, badge: true, alert: true));
+    // _firebaseMessaging.onIosSettingsRegistered
+    //     .listen((IosNotificationSettings settings) {
+    //   print("Settings registered: $settings");
+    // });
   }
 
   @override
@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
             child: Image.asset(
               AppAssets.schoolLogo,
               fit: BoxFit.fill,
+              width: 40,
             ),
           ),
           bottom: PreferredSize(
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    '${lang.className(_className)}',
+                    '${lang.className('\n'+_className)}',
                     style: TextStyle(color: Colors.white),
                   ),
                 ],

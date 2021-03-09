@@ -11,6 +11,7 @@ class HomeWorkBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(detail);
     return SizedBox(
       height: 300,
       child: Column(

@@ -55,7 +55,7 @@ class _TimeTableViewState extends State<TimeTableView> {
       return LocalizedView(
         builder: (ctx, lang) => RefreshIndicator(
           onRefresh: _fetchData,
-          child: _timeTable.timeWeek == null
+          child: _timeTable?.timeWeek ?? null== null
               ? NoDataWidget()
               : SingleChildScrollView(
                   child: Column(
