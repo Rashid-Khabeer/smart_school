@@ -10,7 +10,7 @@ class AppLocalizationsUr extends AppLocalizations {
   AppLocalizationsUr([String locale = 'ur']) : super(locale);
 
   @override
-  String get appName => 'Lezan School';
+  String get appName => 'Lezan Private';
 
   @override
   String get login => 'چونە ژوورەوە';
@@ -28,7 +28,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get privacy => 'رێساو یاسا';
 
   @override
-  String get language => 'زامان هەڵبژێرە';
+  String get language => 'زمان هەڵبژێرە';
 
   @override
   String get english => 'ئینگلیزی';
@@ -126,7 +126,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get admissionDate => 'بەرواری تۆمار';
 
   @override
-  String get dob => 'رۆژی لە داکبوون';
+  String get dob => 'بەرواری لە  دایکبوون';
 
   @override
   String get category => 'جۆر';
@@ -153,10 +153,10 @@ class AppLocalizationsUr extends AppLocalizations {
   String get bloodGroup => 'جۆری خوێن';
 
   @override
-  String get height => 'بەژن';
+  String get height => 'باڵا';
 
   @override
-  String get weight => 'وەزن';
+  String get weight => 'کێش';
 
   @override
   String get asOnDate => 'لە بەرواری';
@@ -390,7 +390,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get assignments => 'ئەرکەکان';
 
   @override
-  String get studyMaterial => 'مادە خێندن';
+  String get studyMaterial => 'مادەی خوێندن';
 
   @override
   String get otherDownloads => 'داگرتنەکانی تر';

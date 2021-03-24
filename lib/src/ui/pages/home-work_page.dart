@@ -29,8 +29,7 @@ class _HomeWorkPageState extends State<HomeWorkPage> {
         .getHomeWork(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
-      request:
-          StudentRequest(id: AppData().getUserId()),
+      request: StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);
@@ -125,11 +124,19 @@ class _RowItem extends StatelessWidget {
                   ),
                   TextButton.icon(
                     onPressed: () {
-                      Scaffold.of(context).showBottomSheet(
-                        (context) => HomeWorkBottomSheet(
+                      print(homeWorkDetail.description);
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (_) => HomeWorkBottomSheet(
                           detail: homeWorkDetail.description,
                         ),
+                        isScrollControlled: true,
                       );
+                      // Scaffold.of(context).showBottomSheet(
+                      //   (context) => HomeWorkBottomSheet(
+                      //     detail: homeWorkDetail.description,
+                      //   ),
+                      // );
                     },
                     icon: Icon(CupertinoIcons.list_number),
                     label: Text(lang.view),

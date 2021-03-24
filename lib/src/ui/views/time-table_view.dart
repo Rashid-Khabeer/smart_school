@@ -25,8 +25,7 @@ class _TimeTableViewState extends State<TimeTableView> {
         .getTimeTable(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
-      request:
-          StudentRequest(id: AppData().getUserId()),
+      request: StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);
@@ -55,7 +54,7 @@ class _TimeTableViewState extends State<TimeTableView> {
       return LocalizedView(
         builder: (ctx, lang) => RefreshIndicator(
           onRefresh: _fetchData,
-          child: _timeTable?.timeWeek ?? null== null
+          child: _timeTable?.timeWeek?.toJson()?.isEmpty ?? true
               ? NoDataWidget()
               : SingleChildScrollView(
                   child: Column(
@@ -136,8 +135,6 @@ class _RowItem extends StatelessWidget {
 
   _getDataRow() {
     return list.map((e) {
-      print(e.subjectName);
-      print(e.code);
       return DataRow(
         cells: [
           DataCell(

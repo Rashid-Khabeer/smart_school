@@ -1,8 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:html/parser.dart';
 
 class HomeWorkBottomSheet extends StatelessWidget {
   final String detail;
@@ -11,38 +9,39 @@ class HomeWorkBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(detail);
-    return SizedBox(
+    var document = parse(detail);
+    return Container(
       height: 300,
-      child: Column(
-        children: [
-          Container(
-            color: Colors.grey,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  icon: Icon(CupertinoIcons.clear),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              color: Colors.grey,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    icon: Icon(CupertinoIcons.clear),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: WebView(
-              initialUrl: 'about:blank',
-              onWebViewCreated: (WebViewController webViewController) {
-                webViewController.loadUrl(
-                  Uri.dataFromString(
-                    detail,
-                    mimeType: 'text/html',
-                    encoding: Encoding.getByName('utf-8'),
-                  ).toString(),
-                );
-              },
-            ),
-          ),
-        ],
+            Text(document.body.text),
+            // WebView(
+            //   initialUrl: 'about:blank',
+            //   onWebViewCreated: (WebViewController webViewController) {
+            //     webViewController.loadUrl(
+            //       Uri.dataFromString(
+            //         detail,
+            //         mimeType: 'text/html',
+            //         encoding: Encoding.getByName('utf-8'),
+            //       ).toString(),
+            //     );
+            //   },
+            // ),
+          ],
+        ),
       ),
     );
   }

@@ -26,8 +26,7 @@ class _FeesPageState extends State<FeesPage> {
         .getFee(
       authKey: AppData().readLastUser().token,
       userId: AppData().readLastUser().userId,
-      request:
-          StudentRequest(id: AppData().getUserId()),
+      request: StudentRequest(id: AppData().getUserId()),
     )
         .catchError((error) {
       print(error);
@@ -81,9 +80,13 @@ class _FeesPageState extends State<FeesPage> {
                                 style: k14Style),
                           ),
                           Expanded(
-                            child: Text(
-                                "${lang.discount}\n${_fee.grandFee?.amountDiscount ?? ''}",
-                                style: k14Style),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 7),
+                              child: Text(
+                                  "${lang.discount}\n${_fee.grandFee?.amountDiscount ?? ''}",
+                                  style: k14Style),
+                            ),
                           ),
                           Expanded(
                             child: Text(
@@ -91,9 +94,13 @@ class _FeesPageState extends State<FeesPage> {
                                 style: k14Style),
                           ),
                           Expanded(
-                            child: Text(
-                                "${lang.paid}\n${_fee.grandFee?.amountPaid ?? ''}",
-                                style: k14Style),
+                            child: Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 7),
+                              child: Text(
+                                  "${lang.paid}\n${_fee.grandFee?.amountPaid ?? ''}",
+                                  style: k14Style),
+                            ),
                           ),
                           Expanded(
                             child: Text(

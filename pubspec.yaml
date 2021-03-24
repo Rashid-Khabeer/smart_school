@@ -41,13 +41,15 @@ dependencies:
   url_launcher: ^5.7.10
   # Web View
   webview_flutter: ^1.0.7
+#  flutter_inappwebview: ^5.1.0+4
   # Downloader
-  flutter_downloader: ^1.5.2
+  flutter_downloader:
   permission_handler: ^5.0.1+1
   image_picker: ^0.6.7+22
   smooth_star_rating: ^1.1.1
   flutter_slidable: ^0.5.7
   bottom_navy_bar: ^5.6.0
+  html:
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +60,7 @@ dev_dependencies:
   flutter_native_splash: ^0.3.0
 
 flutter:
-#  generate: true
+  generate: true
   uses-material-design: true
 
   assets:

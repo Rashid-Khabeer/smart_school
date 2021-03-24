@@ -6,7 +6,8 @@ mixin LocaleData {
 
   static Future<void> initiate() async {
     locale.value = Locale.fromSubtags(
-      languageCode: SharedPreferencesMixin?.getLocale()?.isEmpty ?? true
+      languageCode:
+      SharedPreferencesMixin?.getLocale()?.isEmpty ?? true
           ? 'en'
           : SharedPreferencesMixin.getLocale(),
     );
